@@ -1,4 +1,32 @@
-<!-- NG-ZORRO -->
-<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" src="https://img.alicdn.com/tfs/TB1NvvIwTtYBeNjy1XdXXXXyVXa-89-131.svg">
-</a>
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'lg'">
+    <div class="logo">
+      <img src="assets/img/banner.png">
+    </div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+      <li nz-menu-item>
+        <span>
+          <i class="anticon anticon-user"></i>
+          <span class="nav-text">關於</span>
+        </span>
+      </li>
+      <li nz-menu-item>
+        <span>
+          <i class="anticon anticon-profile"></i>
+          <span class="nav-text">專案</span>
+        </span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
+    </nz-header>
+    <nz-content>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer>Wind &copy; {{ current | date:'yyyy'}}</nz-footer>
+  </nz-layout>
+</nz-layout>
