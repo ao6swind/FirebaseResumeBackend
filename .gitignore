@@ -37,3 +37,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# 較為隱密的檔案
+src/environments/environment.ts
