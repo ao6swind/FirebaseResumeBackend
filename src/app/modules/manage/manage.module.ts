@@ -12,6 +12,13 @@ import { IndexComponent } from './index/index.component';
     ManageRoutingModule,
     NgZorroAntdModule,
   ],
-  declarations: [LoginComponent, ManageComponent, IndexComponent]
+  declarations: [
+    ManageComponent, 
+    LoginComponent, 
+    IndexComponent
+  ],
+  bootstrap: [
+    ManageComponent
+  ]
 })
 export class ManageModule { }

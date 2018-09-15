@@ -9,6 +9,7 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
+  public isCollapsed: boolean = false;
   public current:string = Date.now().toString();
   public language:string = 'zh-TW';
 

@@ -2,26 +2,21 @@
   <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'lg'">
     <div *ngIf="afAuth.authState | async; let user">
       <div class="logo">
-        <img src="assets/img/banner.png">
+        <a routerLink="">
+          <img src="assets/img/banner.png">
+        </a>
       </div>
       <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'" >
-        <li nz-menu-item>
+        <li nz-menu-item routerLink="about">
           <span>
             <i class="anticon anticon-user"></i>
             <span class="nav-text">關於</span>
           </span>
         </li>
-        <li nz-menu-item>
+        <li nz-menu-item routerLink="project">
           <span>
             <i class="anticon anticon-profile"></i>
             <span class="nav-text">專案</span>
-          </span>
-        </li>
-
-        <li nz-menu-item>
-          <span>
-            <i class="anticon anticon-user"></i>
-            <span class="nav-text">{{ user.displayName }}</span>
           </span>
         </li>
 
@@ -36,7 +31,7 @@
   </nz-sider>
   <nz-layout>
     <nz-header>
-      <div nz-row *ngIf="afAuth.authState | async; let user">
+      <div nz-row *ngIf="afAuth.authState | async">
         <div nz-col nzSpan="8">
           <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
         </div>

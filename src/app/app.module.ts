@@ -15,6 +15,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ManageModule } from './modules/manage/manage.module';
+import { AboutModule } from './modules/about/about.module';
+import { ProjectModule } from './modules/project/project.module';
 
 registerLocaleData(zh);
 
@@ -31,8 +33,7 @@ registerLocaleData(zh);
     NgZorroAntdModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    ManageModule
+    AngularFireDatabaseModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_TW }],
   bootstrap: [AppComponent]
