@@ -1,4 +1,3 @@
-import { ManageModule } from './modules/manage/manage.module';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,7 +12,9 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ManageModule } from './modules/manage/manage.module';
 
 registerLocaleData(zh);
 
@@ -29,6 +30,7 @@ registerLocaleData(zh);
     HttpClientModule,
     NgZorroAntdModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     AngularFireDatabaseModule,
     ManageModule
   ],
