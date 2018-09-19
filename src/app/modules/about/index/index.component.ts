@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.less']
 })
 export class IndexComponent implements OnInit {
-
+  public editorValue: string = '';
   constructor() { }
 
   ngOnInit() {
