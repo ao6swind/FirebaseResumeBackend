@@ -2,9 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'project',  loadChildren: './modules/project/project.module#ProjectModule' },
-  { path: 'about',    loadChildren: './modules/about/about.module#AboutModule' },
-  { path: '',         loadChildren: './modules/manage/manage.module#ManageModule' }
+  { path: 'about',      loadChildren: './modules/about/about.module#AboutModule' },
+  { path: 'education',  loadChildren: './modules/education/education.module#EducationModule' },
+  { path: 'experience', loadChildren: './modules/experience/experience.module#ExperienceModule' },
+  { path: 'project',    loadChildren: './modules/project/project.module#ProjectModule' },
+  { path: 'skill',      loadChildren: './modules/skill/skill.module#SkillModule' },
+  { path: '',           loadChildren: './modules/manage/manage.module#ManageModule' }
 ];
 
 @NgModule({
