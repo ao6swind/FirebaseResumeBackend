@@ -5,12 +5,15 @@ import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectComponent } from './project.component';
 import { IndexComponent } from './index/index.component';
 import { CreateComponent } from './create/create.component';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
+
+import { GeneralModule } from '../../shared/general/general.module';
+
+
 @NgModule({
   imports: [
     CommonModule,
     ProjectRoutingModule,
-    NgZorroAntdModule
+    GeneralModule
   ],
   declarations: [
     ProjectComponent, 

@@ -1,0 +1,48 @@
+<p>
+  <button nz-button nzType="default" routerLink="/education/create">
+    <i class="anticon anticon-plus"></i>
+    <span>新增</span>
+  </button>
+</p>
+
+<h2>學歷列表</h2>
+
+<nz-table 
+  [nzData]="dataSet" 
+  [nzFrontPagination]="false"
+  [nzPageIndex]="1" 
+  [nzPageSize]="pagesize" 
+  [nzTotal]="total"
+  [nzShowSizeChanger]="true"
+  [nzPageSizeOptions]="[ 1, 10, 20, 30, 40, 50 ]">
+  <thead>
+    <tr>
+      <th>學歷</th>
+      <th>學校</th>
+      <th>主修</th>
+      <th>始業</th>
+      <th>畢業</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of dataSet">
+      <td>{{ data.education.level }}</td>
+      <td>{{ data.education.school }}</td>
+      <td>{{ data.education.major }}</td>
+      <td>{{ data.education.start }}</td>
+      <td>{{ data.education.end }}</td>
+      <td>
+        <button nz-button nzType="default">
+          <i class="anticon anticon-edit"></i>
+          <span>修改</span>
+        </button>
+        <nz-divider nzType="vertical"></nz-divider>
+        <button nz-button nzType="danger" nz-popconfirm nzTitle="確定要刪除嗎？" (nzOnConfirm)="delete(data.$key)">
+          <i class="anticon anticon-delete"></i>
+          <span>刪除</span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
