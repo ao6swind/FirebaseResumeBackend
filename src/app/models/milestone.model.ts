@@ -1,5 +1,6 @@
 export class Milestone 
 {
-    public time: string;
+    public instance: string;
+    public datetime: string;
     public description: string;
 }

@@ -1,3 +1,51 @@
 <p>
-  create works!
+  <button nz-button nzType="default" routerLink="/project">
+    <i class="anticon anticon-plus"></i>
+    <span>回列表</span>
+  </button>
 </p>
+
+<h2>新增專案</h2>
+
+<form [formGroup]="formProject" (ngSubmit)="submit()">
+  <nz-tabset>
+    <nz-tab nzTitle="基本資訊">
+      <nz-form-item>
+        <nz-form-control [nzSm]="12" [nzXs]="24">
+          <nz-form-item>
+            <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="title">名稱</nz-form-label>
+            <nz-form-control [nzSm]="16" [nzXs]="24">
+              <input nz-input id="title" formControlName="title" [(ngModel)]="project.title" placeholder="請輸入名稱">
+              <nz-form-explain *ngIf="formProject.get('title').dirty && formProject.get('title').errors">請輸入名稱</nz-form-explain>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control [nzSm]="{span:20,offset:4}" [nzXs]="{span:24,offset:0}" >
+              <button nz-button>
+                <i class="anticon anticon-save"></i>
+                <span>儲存</span>
+              </button>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-form-control>
+        <nz-form-control [nzSm]="12" [nzXs]="24">
+          <app-keyword [keywords]="project.keywords" [form]="formProject"></app-keyword>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-tab>
+    <nz-tab nzTitle="畫面截圖">
+      
+    </nz-tab>
+    <nz-tab nzTitle="專案里程碑">
+      <nz-form-item>
+        <nz-form-control [nzSm]="12" [nzXs]="24">
+
+        </nz-form-control>
+        <nz-form-control [nzSm]="12" [nzXs]="24">
+        
+        </nz-form-control>
+      </nz-form-item>
+    </nz-tab>
+  </nz-tabset>
+</form>
+{{ project | json }}

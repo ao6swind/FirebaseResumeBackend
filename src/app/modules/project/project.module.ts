@@ -7,6 +7,7 @@ import { IndexComponent } from './index/index.component';
 import { CreateComponent } from './create/create.component';
 
 import { GeneralModule } from '../../shared/general/general.module';
+import { KeywordComponent } from './component/keyword/keyword.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { GeneralModule } from '../../shared/general/general.module';
   declarations: [
     ProjectComponent, 
     IndexComponent, 
-    CreateComponent
+    CreateComponent, 
+    KeywordComponent
   ],
   bootstrap: [
     ProjectComponent

@@ -1,10 +1,10 @@
-import { Education } from './../../../models/education.model';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Education } from './../../../models/education.model';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-create',
@@ -13,8 +13,6 @@ import { Router } from '@angular/router';
 })
 export class CreateComponent implements OnInit {
   // 屬性
-  private status: boolean;
-  private message: string;
   private formEducation: FormGroup;
   private education: Education = new Education();
   private fb_educations: AngularFireList<Education>;

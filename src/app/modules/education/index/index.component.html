@@ -33,12 +33,12 @@
       <td>{{ data.education.start }}</td>
       <td>{{ data.education.end }}</td>
       <td>
-        <button nz-button nzType="default">
+        <button nz-button nzType="default" nzSize="small">
           <i class="anticon anticon-edit"></i>
           <span>修改</span>
         </button>
         <nz-divider nzType="vertical"></nz-divider>
-        <button nz-button nzType="danger" nz-popconfirm nzTitle="確定要刪除嗎？" (nzOnConfirm)="delete(data.$key)">
+        <button nz-button nzType="danger" nzSize="small" nz-popconfirm nzTitle="確定要刪除嗎？" (nzOnConfirm)="delete(data.$key)">
           <i class="anticon anticon-delete"></i>
           <span>刪除</span>
         </button>

@@ -8,9 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class IndexComponent implements OnInit {
 
   constructor() { 
-    console.log("IN");
-    console.log("IN");
-    console.log("IN");
 
   }
 

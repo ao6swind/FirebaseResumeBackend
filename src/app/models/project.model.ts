@@ -1,14 +1,15 @@
-import { Screen } from "./screen.model";
+import { Keyword } from './keyword.model';
+import { ScreenImage } from "./screen.model";
 import { Milestone } from "./milestone.model";
 
 export class Project 
 {
-    public name: string;
+    public title: string;
     public type: string;
-    public keywords: string[];
     public is_public: boolean;
     public url: string;
     public description: string;
-    public screens: Array<Screen>;
-    public milestones: Array<Milestone>;
+    public keywords: Array<Keyword> = new Array<Keyword>();
+    public screens: Array<ScreenImage> = new Array<ScreenImage>();
+    public milestones: Array<Milestone> = new Array<Milestone>();
 }
