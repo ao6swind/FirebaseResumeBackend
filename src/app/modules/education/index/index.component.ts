@@ -16,7 +16,6 @@ export class IndexComponent implements OnInit {
   constructor(private firebase: AngularFireDatabase) { }
   
   ngOnInit() {
-    
     this.data = this.firebase.list('zh_TW_educations');
     this.data.snapshotChanges().subscribe(list => {
       this.total = list.length;

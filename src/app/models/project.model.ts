@@ -8,7 +8,7 @@ export class Project
     public type: string;
     public is_public: boolean;
     public url: string;
-    public description: string;
+    public description: string = '';
     public keywords: Array<Keyword> = new Array<Keyword>();
     public screens: Array<ScreenImage> = new Array<ScreenImage>();
     public milestones: Array<Milestone> = new Array<Milestone>();

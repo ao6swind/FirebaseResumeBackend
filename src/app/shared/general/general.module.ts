@@ -39,5 +39,5 @@ registerLocaleData(zh);
   providers: [{ provide: NZ_I18N, useValue: zh_TW }]
 })
 export class GeneralModule { 
-  public language: string;
+  
 }

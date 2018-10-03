@@ -8,6 +8,8 @@ import { CreateComponent } from './create/create.component';
 
 import { GeneralModule } from '../../shared/general/general.module';
 import { KeywordComponent } from './component/keyword/keyword.component';
+import { MilestoneComponent } from './component/milestone/milestone.component';
+import { ScreenComponent } from './component/screen/screen.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { KeywordComponent } from './component/keyword/keyword.component';
     ProjectComponent, 
     IndexComponent, 
     CreateComponent, 
-    KeywordComponent
+    KeywordComponent, 
+    MilestoneComponent, 
+    ScreenComponent
   ],
   bootstrap: [
     ProjectComponent

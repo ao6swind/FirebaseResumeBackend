@@ -62,7 +62,7 @@
         </div>
         <div nz-col nzSpan="8" nzOffset="8">
           <div *ngIf="afAuth.authState">
-            <nz-select [(ngModel)]="language">
+            <nz-select [(ngModel)]="language" (change)="redirect()">
               <nz-option nzValue="en-US" nzLabel="English"></nz-option>
               <nz-option nzValue="zh-TW" nzLabel="中文"></nz-option>
             </nz-select>
@@ -75,6 +75,6 @@
         <router-outlet></router-outlet>
       </div>
     </nz-content>
-    <nz-footer>Wind &copy; {{ current | date:'yyyy'}}</nz-footer>
+    <nz-footer>Wind &copy; {{ current | date:'yyyy' }}</nz-footer>
   </nz-layout>
 </nz-layout>

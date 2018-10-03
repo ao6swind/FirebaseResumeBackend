@@ -1,0 +1,43 @@
+<button nz-button nzType="dashed" (click)="addColumn()" type="button">
+  <i class="anticon anticon-plus"></i>
+  <span>增加</span>
+</button>
+<div [formGroup]="form">
+  <nz-tabset [nzTabPosition]="'left'" formArrayName="screens">
+    <nz-tab *ngFor="let row of form.get('screens').controls; let i = index;" [nzTitle]="pnlTabTitle">
+      <div [formGroupName]="i">
+        <ng-template #pnlTabTitle>
+          <div>
+            <span>畫面</span>
+            {{ (i + 1) }}
+            <i class="anticon anticon-close" (click)="removeColumn(i)"></i>
+          </div>
+        </ng-template>
+      
+        <nz-form-item>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="screen.title#{{i}}">標題</nz-form-label>
+          <nz-form-control [nzSm]="16" [nzXs]="24">
+            <input nz-input id="screen.title#{{i}}" formControlName="title" [(ngModel)]="screens[i].title" placeholder="請輸入標題">
+            <nz-form-explain *ngIf="row.get('title').dirty && row.get('title').errors">請輸入標題</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+       
+        <nz-form-item>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="screen.url#{{i}}">檔案</nz-form-label>
+          <nz-form-control [nzSm]="16" [nzXs]="24">
+            <input nz-input id="screen.url#{{i}}" formControlName="url" placeholder="請選擇檔案" type="file" (change)="readURL($event, i)">
+            <nz-form-explain *ngIf="row.get('url').dirty && row.get('url').errors">請選擇檔案</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="screen.description#{{i}}">敘述</nz-form-label>
+          <nz-form-control [nzSm]="16" [nzXs]="24">
+            <textarea nz-input id="screen.description#{{i}}" formControlName="description" [(ngModel)]="screens[i].description" placeholder="請輸入敘述" rows="10"></textarea>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      
+    </nz-tab>
+  </nz-tabset>
+</div>

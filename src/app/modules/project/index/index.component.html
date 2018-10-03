@@ -4,3 +4,41 @@
     <span>新增</span>
   </button>
 </p>
+
+<h2>專案列表</h2>
+
+<nz-table 
+  [nzData]="dataSet" 
+  [nzFrontPagination]="false"
+  [nzPageIndex]="1" 
+  [nzPageSize]="pagesize" 
+  [nzTotal]="total"
+  [nzShowSizeChanger]="true"
+  [nzPageSizeOptions]="[ 1, 10, 20, 30, 40, 50 ]">
+  <thead>
+    <tr>
+      <th>名稱</th>
+      <th>類型</th>
+      <th>是否公開</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of dataSet">
+      <td>{{ data.project.title }}</td>
+      <td>{{ data.project.type }}</td>
+      <td>{{ data.project.is_public }}</td>
+      <td>
+        <button nz-button nzType="default" nzSize="small" routerLink="/project/edit/{{ data.$key }}">
+          <i class="anticon anticon-edit"></i>
+          <span>修改</span>
+        </button>
+        <nz-divider nzType="vertical"></nz-divider>
+        <button nz-button nzType="danger" nzSize="small" nz-popconfirm nzTitle="確定要刪除嗎？" (nzOnConfirm)="delete(data.$key, data.project)">
+          <i class="anticon anticon-delete"></i>
+          <span>刪除</span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

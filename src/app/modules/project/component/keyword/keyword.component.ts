@@ -1,6 +1,6 @@
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { Keyword } from './../../../../models/keyword.model';
 import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Keyword } from './../../../../models/keyword.model';
 
 @Component({
   selector: 'app-keyword',
@@ -14,7 +14,7 @@ export class KeywordComponent implements OnInit {
 
   private counter: number = 0;
 
-  constructor(fb: FormBuilder) 
+  constructor() 
   { 
 
   }
@@ -26,7 +26,7 @@ export class KeywordComponent implements OnInit {
   {
     this.counter++;
     const column = new Keyword();
-    column.instance = `${name}#${this.counter}`;
+    column.instance = `keyword#${this.counter}`;
     this.keywords.push(column);
     this.form.addControl(column.instance, new FormControl(null, Validators.required));
   }

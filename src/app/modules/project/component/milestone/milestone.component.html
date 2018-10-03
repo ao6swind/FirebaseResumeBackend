@@ -1,0 +1,21 @@
+<button nz-button nzType="dashed" (click)="addColumn()" type="button">
+  <i class="anticon anticon-plus"></i>
+  <span>增加</span>
+</button>
+<div [formGroup]="form">
+  <nz-form-item *ngFor="let milestone of milestones; let i = index">
+    <nz-form-control [nzXs]="24" [nzSm]="24">
+      <nz-input-group nzCompact>
+        <nz-date-picker [(ngModel)]="milestones[i].datetime" formControlName="{{ milestone.instance }}#datetime" [nzFormat]="yyyy-MM-dd"></nz-date-picker>
+        <input nz-input class="txt-description" [(ngModel)]="milestones[i].description" formControlName="{{ milestone.instance }}#description" placeholder="請輸入敘述">
+        <button nz-button nzType="danger" (click)="removeColumn(i)">
+          <i class="anticon anticon-delete"></i>
+        </button>
+      </nz-input-group>
+      <nz-form-explain *ngIf="(form.get(milestone.instance + '#datetime').dirty && form.get(milestone.instance + '#datetime').errors) || (form.get(milestone.instance + '#description').dirty && form.get(milestone.instance + '#description').errors)">
+        <span *ngIf="form.get(milestone.instance + '#datetime').dirty && form.get(milestone.instance + '#datetime').errors">請選擇日期</span>
+        <span *ngIf="form.get(milestone.instance + '#description').dirty && form.get(milestone.instance + '#description').errors">請輸入敘述</span>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+</div>

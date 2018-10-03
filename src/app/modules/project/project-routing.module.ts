@@ -4,6 +4,7 @@ import { IndexComponent } from './index/index.component';
 import { CreateComponent } from './create/create.component';
 
 const routes: Routes = [
+  { path: 'edit/:id', component: CreateComponent },
   { path: 'create', component: CreateComponent },
   { path: '', component: IndexComponent }
 ];

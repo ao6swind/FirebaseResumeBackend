@@ -1,7 +1,10 @@
+<button nz-button nzType="dashed" (click)="addColumn()" type="button">
+  <i class="anticon anticon-plus"></i>
+  <span>增加</span>
+</button>
 <div [formGroup]="form">
   <nz-form-item *ngFor="let keyword of keywords; let i = index">
-    <nz-form-label [nzXs]="24" [nzSm]="4" nzFor="{{ keyword.instance }}" *ngIf="(i == 0)" >關鍵字</nz-form-label>
-    <nz-form-control [nzXs]="24" [nzSm]="20" [nzOffset]="(i == 0) ? 0 : 4">
+    <nz-form-control [nzXs]="24" [nzSm]="24">
       <nz-input-group nzSearch [nzSuffix]="pnlDelete">
         <input nz-input [(ngModel)]="keywords[i].content" formControlName="{{ keyword.instance }}" placeholder="請輸入關鍵字">
       </nz-input-group>
@@ -12,14 +15,6 @@
         </button>
       </ng-template>
       <nz-form-explain *ngIf="form.get(keyword.instance).dirty && form.get(keyword.instance).errors">請輸入關鍵字</nz-form-explain>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-control [nzXs]="{span:24,offset:0}" [nzSm]="{span:20,offset:4}">
-      <button nz-button nzType="dashed" (click)="addColumn()" type="button">
-        <i class="anticon anticon-plus"></i>
-        <span>新增</span>
-      </button>
     </nz-form-control>
   </nz-form-item>
 </div>

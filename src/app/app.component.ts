@@ -9,11 +9,11 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  public isCollapsed: boolean = false;
-  public current:string = Date.now().toString();
-  public language:string = 'zh-TW';
+  private isCollapsed: boolean = false;
+  private current: string = Date.now().toString();
+  private language: string = 'zh-TW';
 
-  constructor(public afAuth: AngularFireAuth, private router: Router) {
+  constructor(private afAuth: AngularFireAuth, private router: Router) {
     this.afAuth.authState.subscribe((user: firebase.User) => {
       if (user == null) {
         this.router.navigate(['login']);
@@ -21,7 +21,11 @@ export class AppComponent {
     });
   }
 
-  logout() {
+  logout(): void {
     this.afAuth.auth.signOut();
+  }
+
+  redirect(): void {
+    console.log(this.language);
   }
 }
