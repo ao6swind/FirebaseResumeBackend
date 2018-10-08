@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 
 # 較為隱密的檔案
-src/environments/environment.ts
+/src/environments/environment.ts
