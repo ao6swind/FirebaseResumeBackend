@@ -10,7 +10,11 @@
           <div>
             <span>畫面</span>
             {{ (i + 1) }}
-            <i class="anticon anticon-close" (click)="removeColumn(i)"></i>
+            <i class="anticon anticon-close" 
+              nz-popconfirm 
+              nzTitle="您確定要刪除這筆資料嗎？" 
+              [nzCondition]="hideConfirm" 
+              (nzOnConfirm)="removeColumn(i)"></i>
           </div>
         </ng-template>
       

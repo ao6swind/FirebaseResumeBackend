@@ -1,25 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { Project } from './../../../models/project.model';
+import { message } from './../../../variables/message';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.less']
 })
-export class IndexComponent implements OnInit {
 
-  private pagesize: number = 10;
-  private total: number;
-  private data: AngularFireList<Project>;
+export class IndexComponent implements OnInit 
+{
+  private projects: AngularFireList<Project>;
   private dataSet = [];
-  constructor(private firebase: AngularFireDatabase) { }
 
-  ngOnInit() {
-    this.data = this.firebase.list('zh_TW_projects');
-    this.data.snapshotChanges().subscribe(list => {
-      this.total = list.length;
+  constructor
+  (
+    private firebase: AngularFireDatabase,
+    private message: NzMessageService
+  ) 
+  { 
+
+  }
+
+  ngOnInit() 
+  {
+    this.projects = this.firebase.list('zh_TW_projects');
+    this.projects.snapshotChanges().subscribe(list => {
       this.dataSet = list.map(item => {
         return {
           $key: item.key,
@@ -35,6 +44,7 @@ export class IndexComponent implements OnInit {
     {
       firebase.storage().refFromURL(project.screens[i].url).delete();
     }
-    this.data.remove($key);
+    this.projects.remove($key);
+    this.message.success(message['zh_TW'].success.delete);
   }
 }

@@ -4,15 +4,18 @@
     <span>回列表</span>
   </button>
 </p>
-
-<h2>新增學歷</h2>
-
-<form [formGroup]="formEducation" (ngSubmit)="submit()">
+  
+<h2 [ngSwitch]="is_create_mode">
+  <span *ngSwitchCase="true">新增學歷</span>
+  <span *ngSwitchCase="false">修改學歷</span>
+</h2>
+  
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
   <nz-form-item>
     <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="level">學歷</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
       <input nz-input id="level" formControlName="level" [(ngModel)]="education.level" placeholder="請輸入學歷">
-      <nz-form-explain *ngIf="formEducation.get('level').dirty && formEducation.get('level').errors">請輸入學歷</nz-form-explain>
+      <nz-form-explain *ngIf="formGroup.get('level').dirty && formGroup.get('level').errors">請輸入學歷</nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
@@ -20,7 +23,7 @@
     <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="school">學校</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
       <input nz-input id="school" formControlName="school" [(ngModel)]="education.school" placeholder="請輸入學校">
-      <nz-form-explain *ngIf="formEducation.get('school').dirty && formEducation.get('school').errors">請輸入學校</nz-form-explain>
+      <nz-form-explain *ngIf="formGroup.get('school').dirty && formGroup.get('school').errors">請輸入學校</nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
@@ -28,7 +31,7 @@
       <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="department">科系</nz-form-label>
       <nz-form-control [nzSm]="16" [nzXs]="24">
         <input nz-input id="department" formControlName="department" [(ngModel)]="education.department" placeholder="請輸入科系">
-        <nz-form-explain *ngIf="formEducation.get('department').dirty && formEducation.get('department').errors">請輸入科系</nz-form-explain>
+        <nz-form-explain *ngIf="formGroup.get('department').dirty && formGroup.get('department').errors">請輸入科系</nz-form-explain>
       </nz-form-control>
     </nz-form-item>
   
@@ -36,7 +39,7 @@
     <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="major">主修</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
       <input nz-input id="major" formControlName="major" [(ngModel)]="education.major" placeholder="請輸入主修">
-      <nz-form-explain *ngIf="formEducation.get('major').dirty && formEducation.get('major').errors">請輸入主修</nz-form-explain>
+      <nz-form-explain *ngIf="formGroup.get('major').dirty && formGroup.get('major').errors">請輸入主修</nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
@@ -44,7 +47,7 @@
     <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="start">始業</nz-form-label>
     <nz-form-control [nzSm]="4" [nzXs]="24">
       <nz-month-picker id="start" formControlName="start" [(ngModel)]="education.start"></nz-month-picker>
-      <nz-form-explain *ngIf="formEducation.get('start').dirty && formEducation.get('start').errors">請輸入始業</nz-form-explain>
+      <nz-form-explain *ngIf="formGroup.get('start').dirty && formGroup.get('start').errors">請輸入始業</nz-form-explain>
     </nz-form-control>
 
     <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="end">畢業</nz-form-label>

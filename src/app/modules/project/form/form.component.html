@@ -5,12 +5,12 @@
   </button>
 </p>
 
-<h2 [ngSwitch]="mode">
+<h2 [ngSwitch]="is_create_mode">
   <span *ngSwitchCase="true">新增專案</span>
   <span *ngSwitchCase="false">修改專案</span>
 </h2>
-
-<form [formGroup]="formProject" (ngSubmit)="submit()">
+  
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
   <nz-tabset>
     <nz-tab nzTitle="基本資訊">
       <nz-form-item>
@@ -19,7 +19,7 @@
             <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="title">專案名稱</nz-form-label>
             <nz-form-control [nzSm]="16" [nzXs]="24">
               <input nz-input id="title" formControlName="title" [(ngModel)]="project.title" placeholder="請輸入專案名稱">
-              <nz-form-explain *ngIf="formProject.get('title').dirty && formProject.get('title').errors">請輸入專案名稱</nz-form-explain>
+              <nz-form-explain *ngIf="formGroup.get('title').dirty && formGroup.get('title').errors">請輸入專案名稱</nz-form-explain>
             </nz-form-control>
           </nz-form-item>
 
@@ -30,7 +30,7 @@
                 <nz-option nzLabel="桌面應用程式" nzValue="桌面應用程式"></nz-option>
                 <nz-option nzLabel="網頁應用程式" nzValue="網頁應用程式"></nz-option>
               </nz-select>
-              <nz-form-explain *ngIf="formProject.get('title').dirty && formProject.get('title').errors">請選擇專案類型</nz-form-explain>
+              <nz-form-explain *ngIf="formGroup.get('title').dirty && formGroup.get('title').errors">請選擇專案類型</nz-form-explain>
             </nz-form-control>
           </nz-form-item>
 
@@ -38,7 +38,7 @@
             <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="url">專案網址</nz-form-label>
             <nz-form-control [nzSm]="16" [nzXs]="24">
               <input nz-input id="url" formControlName="url" [(ngModel)]="project.url" placeholder="請輸入網址">
-              <nz-form-explain *ngIf="formProject.get('url').dirty && formProject.get('url').errors">請輸入網址</nz-form-explain>
+              <nz-form-explain *ngIf="formGroup.get('url').dirty && formGroup.get('url').errors">請輸入網址</nz-form-explain>
             </nz-form-control>
           </nz-form-item>
 
@@ -49,10 +49,11 @@
                 <label nz-radio nzValue="是">是</label>
                 <label nz-radio nzValue="否">否</label>
               </nz-radio-group>
-              <nz-form-explain *ngIf="formProject.get('is_public').dirty && formProject.get('is_public').errors">請選擇是否公開專案網址</nz-form-explain>
+              <nz-form-explain *ngIf="formGroup.get('is_public').dirty && formGroup.get('is_public').errors">請選擇是否公開專案網址</nz-form-explain>
             </nz-form-control>
           </nz-form-item>
         </nz-form-control>
+        
         <nz-form-control [nzSm]="12" [nzXs]="24">
           <nz-form-item>
             <nz-form-label [nzSm]="2" [nzXs]="24" nzFor="description">簡介</nz-form-label>
@@ -70,12 +71,20 @@
           </button>
         </nz-form-control>
       </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control [nzSm]="{ span: 22, offset: 2 }" [nzXs]="24">
+          <nz-form-explain *ngIf="formGroup.get('keywords').hasError('required')">請新增至少一組關鍵字</nz-form-explain>
+          <nz-form-explain *ngIf="formGroup.get('milestones').hasError('required')">請新增至少一個里程碑</nz-form-explain>
+          <nz-form-explain *ngIf="formGroup.get('screens').hasError('required')">請新增至少一張畫面</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
     </nz-tab>
 
     <nz-tab nzTitle="關鍵字">
       <nz-form-item>
         <nz-form-control [nzSm]="12" [nzXs]="24">
-          <app-keyword [keywords]="project.keywords" [form]="formProject"></app-keyword>
+          <app-keyword [keywords]="project.keywords" [form]="formGroup" [builder]="builder"></app-keyword>
         </nz-form-control>
         <nz-form-control [nzSm]="{ span: 10, offset: 2 }" [nzXs]="24">
           <nz-card nzHoverable style="width:100%" [nzCover]="pnlProjectConver">
@@ -100,7 +109,7 @@
     <nz-tab nzTitle="里程碑">
       <nz-form-item>
         <nz-form-control [nzSm]="12" [nzXs]="24">
-          <app-milestone [milestones]="project.milestones" [form]="formProject"></app-milestone>
+          <app-milestone [milestones]="project.milestones" [form]="formGroup" [builder]="builder"></app-milestone>
         </nz-form-control>
         <nz-form-control [nzSm]="{span:11,offset:1}" [nzXs]="24" nzAlign="middle">
           <nz-timeline>
@@ -116,7 +125,7 @@
     <nz-tab nzTitle="畫面截圖">
       <nz-form-item>
         <nz-form-control [nzSm]="12" [nzXs]="24">
-          <app-screen [screens]="project.screens" [files]="files" [form]="formProject" [builder]="builder"></app-screen>
+          <app-screen [screens]="project.screens" [files]="files" [form]="formGroup" [builder]="builder"></app-screen>
         </nz-form-control>
         <nz-form-control [nzSm]="12" [nzXs]="24">
           <nz-carousel nzAutoPlay>

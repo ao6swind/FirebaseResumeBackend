@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { ScreenImage } from '../../../../models/screen.model';
 import { UploadedFile } from '../../../../models/file.model';
 
@@ -15,8 +15,10 @@ export class ScreenComponent implements OnInit {
   @Input() form: FormGroup;
   @Input() builder: FormBuilder;
 
-  private counter: number = 0;
-  constructor() { 
+  private hideConfirm: boolean = true;
+
+  constructor() 
+  { 
     
   }
 
@@ -25,21 +27,8 @@ export class ScreenComponent implements OnInit {
 
   }
 
-  ngOnChanges(changes: SimpleChanges) 
-  {
-    for(let i = 0; i <= changes.screens.currentValue.length - 1; i++)
-    {
-      (this.form.get('screens') as FormArray).push(this.builder.group({
-        title:        [ null, [ Validators.required ] ],
-        url:          [ null, [ Validators.required ] ],
-        description:  [ null ]
-      }));
-    }
-  }
-
   addColumn(): void 
   {
-    this.counter++;
     const column = new ScreenImage();
     this.screens.push(column);
     this.files.push(new UploadedFile());

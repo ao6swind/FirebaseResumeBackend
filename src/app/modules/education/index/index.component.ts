@@ -1,35 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { NzMessageService } from 'ng-zorro-antd';
 import { Education } from '../../../models/education.model';
+import { message } from './../../../variables/message';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.less']
 })
-export class IndexComponent implements OnInit {
-
-  private pagesize: number = 10;
-  private total: number;
-  private data: AngularFireList<Education>;
+export class IndexComponent implements OnInit 
+{
+  private isLoading: boolean = false;
+  private educations: AngularFireList<Education>;
   private dataSet = [];
-  constructor(private firebase: AngularFireDatabase) { }
+
+  constructor
+  (
+    private fb: AngularFireDatabase,
+    private message: NzMessageService
+  ) 
+  { 
   
-  ngOnInit() {
-    this.data = this.firebase.list('zh_TW_educations');
-    this.data.snapshotChanges().subscribe(list => {
-      this.total = list.length;
+  }
+  
+  ngOnInit() 
+  {
+    this.isLoading =  true;
+    this.educations = this.fb.list('zh_TW_educations');
+    this.educations.snapshotChanges().subscribe(list => {
       this.dataSet = list.map(item => {
         return {
           $key: item.key,
           education: item.payload.val()
         }
       });
+      this.isLoading = false;
     });
   }
 
   delete($key: string): void
   {
-    this.data.remove($key);
+    this.educations.remove($key);
+    this.message.success(message['zh_TW'].success.delete);
   }
 }

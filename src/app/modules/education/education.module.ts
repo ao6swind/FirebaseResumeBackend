@@ -5,8 +5,8 @@ import { EducationRoutingModule } from './education-routing.module';
 import { GeneralModule } from '../../shared/general/general.module';
 
 import { EducationComponent } from './education.component';
-import { CreateComponent } from './create/create.component';
 import { IndexComponent } from './index/index.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   imports: [
@@ -14,6 +14,10 @@ import { IndexComponent } from './index/index.component';
     EducationRoutingModule,
     GeneralModule
   ],
-  declarations: [EducationComponent, CreateComponent, IndexComponent]
+  declarations: [
+    EducationComponent, 
+    IndexComponent, 
+    FormComponent
+  ]
 })
 export class EducationModule { }

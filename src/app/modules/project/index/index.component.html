@@ -8,13 +8,10 @@
 <h2>專案列表</h2>
 
 <nz-table 
+  #pnlProject
   [nzData]="dataSet" 
-  [nzFrontPagination]="false"
-  [nzPageIndex]="1" 
-  [nzPageSize]="pagesize" 
-  [nzTotal]="total"
   [nzShowSizeChanger]="true"
-  [nzPageSizeOptions]="[ 1, 10, 20, 30, 40, 50 ]">
+  [nzPageSizeOptions]="[ 5, 10, 15 ]">
   <thead>
     <tr>
       <th>名稱</th>
@@ -24,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of dataSet">
+    <tr *ngFor="let data of pnlProject.data">
       <td>{{ data.project.title }}</td>
       <td>{{ data.project.type }}</td>
       <td>{{ data.project.is_public }}</td>

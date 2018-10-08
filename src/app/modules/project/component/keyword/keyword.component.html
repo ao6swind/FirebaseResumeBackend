@@ -3,18 +3,22 @@
   <span>增加</span>
 </button>
 <div [formGroup]="form">
-  <nz-form-item *ngFor="let keyword of keywords; let i = index">
-    <nz-form-control [nzXs]="24" [nzSm]="24">
-      <nz-input-group nzSearch [nzSuffix]="pnlDelete">
-        <input nz-input [(ngModel)]="keywords[i].content" formControlName="{{ keyword.instance }}" placeholder="請輸入關鍵字">
-      </nz-input-group>
-      
-      <ng-template #pnlDelete>
-        <button nz-button nzType="danger" nzSearch (click)="removeColumn(i)">
-          <i class="anticon anticon-delete"></i>
-        </button>
-      </ng-template>
-      <nz-form-explain *ngIf="form.get(keyword.instance).dirty && form.get(keyword.instance).errors">請輸入關鍵字</nz-form-explain>
-    </nz-form-control>
-  </nz-form-item>
+  <div formArrayName="keywords">
+    <div *ngFor="let row of form.get('keywords').controls; let i = index;">
+      <nz-form-item [formGroupName]="i">
+        <nz-form-control [nzXs]="24" [nzSm]="24">
+          <nz-input-group nzSearch [nzSuffix]="pnlDelete">
+            <input nz-input [(ngModel)]="keywords[i].content" formControlName="content" placeholder="請輸入關鍵字">
+          </nz-input-group>
+          
+          <ng-template #pnlDelete>
+            <button nz-button nzType="danger" nzSearch (click)="removeColumn(i)">
+              <i class="anticon anticon-delete"></i>
+            </button>
+          </ng-template>
+          <nz-form-explain *ngIf="row.get('content').dirty && row.get('content').errors">請輸入關鍵字</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
 </div>
