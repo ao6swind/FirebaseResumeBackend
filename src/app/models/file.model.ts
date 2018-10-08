@@ -1,5 +1,5 @@
-export class UploadedFile 
+export class File
 {
-    public file: File;
-    public content: string;
+    public name: string;
+    public url: string;
 }

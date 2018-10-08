@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { ScreenImage } from '../../../../models/screen.model';
-import { UploadedFile } from '../../../../models/file.model';
+import { Uploaded } from '../../../../models/uploaded.model';
 
 @Component({
   selector: 'app-screen',
@@ -11,7 +11,7 @@ import { UploadedFile } from '../../../../models/file.model';
 export class ScreenComponent implements OnInit {
 
   @Input() screens: Array<ScreenImage>;
-  @Input() files: Array<UploadedFile>;
+  @Input() uploaded_list: Array<Uploaded>;
   @Input() form: FormGroup;
   @Input() builder: FormBuilder;
 
@@ -31,7 +31,7 @@ export class ScreenComponent implements OnInit {
   {
     const column = new ScreenImage();
     this.screens.push(column);
-    this.files.push(new UploadedFile());
+    this.uploaded_list.push(new Uploaded());
 
     (this.form.get('screens') as FormArray).push(this.builder.group({
       title:        [ null, [ Validators.required ] ],
@@ -43,7 +43,7 @@ export class ScreenComponent implements OnInit {
   removeColumn(index: number): void
   {
     this.screens.splice(index, 1);
-    this.files.splice(index, 1);
+    this.uploaded_list.splice(index, 1);
     (this.form.get('screens') as FormArray).removeAt(index);
   }
 
@@ -51,15 +51,15 @@ export class ScreenComponent implements OnInit {
   {
     if (event.target.files && event.target.files[0] && event.target.value.length != 0) 
     {
-      this.files[i].file = event.target.files[0];
+      this.uploaded_list[i].file = event.target.files[0];
       const reader = new FileReader();
-      reader.onload = e => this.files[i].content = reader.result.toString();
-      reader.readAsDataURL(this.files[i].file);
+      reader.onload = e => this.uploaded_list[i].content = reader.result.toString();
+      reader.readAsDataURL(this.uploaded_list[i].file);
     }
     else
     {
-      this.files[i].file = null;
-      this.files[i].content = null;
+      this.uploaded_list[i].file = null;
+      this.uploaded_list[i].content = null;
     }
   }
 }

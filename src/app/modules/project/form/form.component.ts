@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { Project } from '../../../models/project.model';
-import { UploadedFile } from '../../../models/file.model';
+import { Uploaded } from '../../../models/uploaded.model';
 import { NzMessageService } from 'ng-zorro-antd';
 import { message } from './../../../variables/message';
 
@@ -23,7 +23,7 @@ export class FormComponent implements OnInit
   private $key: string = '';
   private project: Project = new Project();
   private observer: Observable<Project>;
-  private files: Array<UploadedFile> = new Array<UploadedFile>();
+  private uploaded_list: Array<Uploaded> = new Array<Uploaded>();
   
   private language = 'zh_TW';
   private target = 'project';
@@ -86,9 +86,9 @@ export class FormComponent implements OnInit
 
           for(let i = 0; i <= this.project.screens.length - 1; i++)
           {
-            const file = new UploadedFile();
-            file.content = this.project.screens[i].url;
-            this.files.push(file);
+            const uploaded = new Uploaded();
+            uploaded.content = this.project.screens[i].url;
+            this.uploaded_list.push(uploaded);
 
             (this.formGroup.get('screens') as FormArray).push(this.builder.group({
               title:        [ null, [ Validators.required ] ],
@@ -136,13 +136,13 @@ export class FormComponent implements OnInit
           .child(this.target)
           .child(key);
 
-        for (let index = 0; index <= this.files.length - 1; index++)
+        for (let index = 0; index <= this.uploaded_list.length - 1; index++)
         {
           const prefix = + new Date() + "-" + index.toString().padStart(2, "0") ;
-          const filename = `${prefix}-${this.files[index].file.name}`;
+          const filename = `${prefix}-${this.uploaded_list[index].file.name}`;
           const task = storage
             .child(filename)
-            .put(this.files[index].file)
+            .put(this.uploaded_list[index].file)
             .then(res => 
             {
               storage.child(filename).getDownloadURL().then(url => 
@@ -161,10 +161,10 @@ export class FormComponent implements OnInit
           .child(this.target)
           .child(this.$key);
 
-        for(let index = 0; index <= this.files.length - 1; index++)
+        for(let index = 0; index <= this.uploaded_list.length - 1; index++)
         {
           // 如果有上傳東西就繼續做
-          if(this.files[index].file != null)
+          if(this.uploaded_list[index].file != null)
           {
             // 如果之前有檔案，就先刪掉
             if(this.project.screens[index].url != '')
@@ -172,10 +172,10 @@ export class FormComponent implements OnInit
               firebase.storage().refFromURL(this.project.screens[index].url).delete();
             }
             const prefix = + new Date() + "-" + index.toString().padStart(2, "0") ;
-            const filename = `${prefix}-${this.files[index].file.name}`;
+            const filename = `${prefix}-${this.uploaded_list[index].file.name}`;
             const task = storage
               .child(filename)
-              .put(this.files[index].file)
+              .put(this.uploaded_list[index].file)
               .then(res => 
               {
                 storage.child(filename).getDownloadURL().then(url => 

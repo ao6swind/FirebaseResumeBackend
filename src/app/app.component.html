@@ -14,6 +14,7 @@
           </span>
           <ul>
             <li nz-menu-item routerLink="profile">自傳</li>
+            <li nz-menu-item routerLink="certification">證照</li>
             <li nz-menu-item routerLink="education">學歷</li>
             <li nz-menu-item routerLink="experience">經歷</li>
             <li nz-menu-item routerLink="skill">技能</li>
@@ -25,7 +26,12 @@
             <span>專案</span>
           </span>
         </li>
-
+        <li nz-menu-item nz-tooltip nzPlacement="right" routerLink="file">
+          <span title>
+            <i class="anticon anticon-file"></i>
+            <span>檔案</span>
+          </span>
+        </li>
         <li nz-menu-item (click)="logout()">
             <span>
               <i class="anticon anticon-logout"></i>
