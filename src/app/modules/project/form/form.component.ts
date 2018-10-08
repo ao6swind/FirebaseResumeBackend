@@ -25,6 +25,9 @@ export class FormComponent implements OnInit
   private observer: Observable<Project>;
   private files: Array<UploadedFile> = new Array<UploadedFile>();
   
+  private language = 'zh_TW';
+  private target = 'project';
+
   constructor
   (
     private route: ActivatedRoute,
@@ -56,7 +59,7 @@ export class FormComponent implements OnInit
       this.route.params.subscribe(params => 
       {
         this.$key = params.id;
-        this.observer = this.fb.object<Project>(`zh_TW_projects/${params.id}`).valueChanges();
+        this.observer = this.fb.object<Project>(`${this.language}/${this.target}/${params.id}`).valueChanges();
         this.observer.subscribe(item => 
         {
           this.project = (item as Project);
@@ -100,7 +103,6 @@ export class FormComponent implements OnInit
 
   submit()
   {
-    console.log('in');
     // 這一段應該可以寫遞迴，這樣就可以驗證更深層的FormArray了
     for (const i in this.formGroup.controls) 
     {
@@ -128,8 +130,11 @@ export class FormComponent implements OnInit
     {
       if(this.is_create_mode)
       {
-        const key =  this.fb.list('zh_TW_projects').push(this.project).key;
-        const storage = firebase.storage().ref().child('zh_TW_projects').child(key);
+        const key =  this.fb.list(`${this.language}/${this.target}`).push(this.project).key;
+        const storage = firebase.storage().ref()
+          .child(this.language)
+          .child(this.target)
+          .child(key);
 
         for (let index = 0; index <= this.files.length - 1; index++)
         {
@@ -143,15 +148,18 @@ export class FormComponent implements OnInit
               storage.child(filename).getDownloadURL().then(url => 
               {
                 this.project.screens[index].url = url;
-                this.fb.object(`zh_TW_projects/${key}`).update(this.project);
+                this.fb.object(`${this.language}/${this.target}/${key}`).update(this.project);
               });
             });
         }
-        this.message.success(message['zh_TW'].success.create);
+        this.message.success(message[this.language].success.create);
       }
       else
       {
-        const storage = firebase.storage().ref().child('zh_TW_projects').child(this.$key);
+        const storage = firebase.storage().ref()
+          .child(this.language)
+          .child(this.target)
+          .child(this.$key);
 
         for(let index = 0; index <= this.files.length - 1; index++)
         {
@@ -173,16 +181,16 @@ export class FormComponent implements OnInit
                 storage.child(filename).getDownloadURL().then(url => 
                 {
                   this.project.screens[index].url = url;
-                  this.fb.object<Project>(`zh_TW_projects/${this.$key}`).update(this.project);
+                  this.fb.object<Project>(`${this.language}/${this.target}/${this.$key}`).update(this.project);
                 });
               });
           }
         }
-        this.fb.object<Project>(`zh_TW_projects/${this.$key}}`).update(this.project);
-        this.message.success(message['zh_TW'].success.update);
+        this.fb.object<Project>(`${this.language}/${this.target}/${this.$key}}`).update(this.project);
+        this.message.success(message[this.language].success.update);
       }
       
-      this.router.navigate(['/project']);
+      this.router.navigate([`/${this.target}`]);
     }
   }
 }

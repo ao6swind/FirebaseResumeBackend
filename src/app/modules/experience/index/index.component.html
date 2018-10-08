@@ -1,3 +1,46 @@
 <p>
-  index works!
+  <button nz-button nzType="default" routerLink="/{{ target }}/create">
+    <i class="anticon anticon-plus"></i>
+    <span>新增</span>
+  </button>
 </p>
+
+<h2>經歷列表</h2>
+
+<nz-table 
+  #pnlExperience
+  [nzData]="dataSet" 
+  [nzLoading]="isLoading"
+  [nzShowSizeChanger]="true"
+  [nzPageSizeOptions]="[ 5, 10, 15 ]">
+  <thead>
+    <tr>
+      <th>單位</th>
+      <th>部門</th>
+      <th>職稱</th>
+      <th>開始</th>
+      <th>結束</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of pnlExperience.data">
+      <td><a href="{{ data.experience.url }}" target="_blank">{{ data.experience.company }}</a></td>
+      <td>{{ data.experience.department }}</td>
+      <td>{{ data.experience.title }}</td>
+      <td>{{ data.experience.start }}</td>
+      <td>{{ data.experience.end }}</td>
+      <td>
+        <button nz-button nzType="default" nzSize="small" routerLink="/{{ target }}/edit/{{ data.$key }}">
+          <i class="anticon anticon-edit"></i>
+          <span>修改</span>
+        </button>
+        <nz-divider nzType="vertical"></nz-divider>
+        <button nz-button nzType="danger" nzSize="small" nz-popconfirm nzTitle="確定要刪除嗎？" (nzOnConfirm)="delete(data.$key)">
+          <i class="anticon anticon-delete"></i>
+          <span>刪除</span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

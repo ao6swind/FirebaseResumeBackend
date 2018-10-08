@@ -1,9 +1,10 @@
 export class Experience 
 {
     public company: string;
-    public url: string;
+    public department: string;
     public title: string;
-    public description: string;
-    public start: string;
-    public end: string;
+    public url: string;
+    public description: string = '';
+    public start: string = '';
+    public end: string = '';
 }

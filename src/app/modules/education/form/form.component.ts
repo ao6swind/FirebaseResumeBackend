@@ -1,11 +1,11 @@
-import { Observable } from 'rxjs';
-import { NzMessageService } from 'ng-zorro-antd';
 import { Component, OnInit } from '@angular/core';
-import { formatDate } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Education } from './../../../models/education.model';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs';
+import { NzMessageService } from 'ng-zorro-antd';
+import { formatDate } from '@angular/common';
+import { Education } from './../../../models/education.model';
 import { message } from './../../../variables/message';
 
 @Component({
@@ -13,6 +13,7 @@ import { message } from './../../../variables/message';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.less']
 })
+
 export class FormComponent implements OnInit 
 {
   // 屬性
@@ -21,6 +22,9 @@ export class FormComponent implements OnInit
   private education: Education = new Education();
   private $key: string = '';
   private observer: Observable<Education>;
+
+  private language = 'zh_TW';
+  private target = 'education';
 
   // 建構子
   constructor
@@ -38,9 +42,9 @@ export class FormComponent implements OnInit
       this.route.params.subscribe(params => 
       {
         this.$key = params.id;
-        this.fb.object(`zh_TW_educations/${params.id}`);
+        this.fb.object(`${this.language}/${this.target}/${params.id}`);
 
-        this.observer = this.fb.object<Education>(`zh_TW_educations/${params.id}`).valueChanges();
+        this.observer = this.fb.object<Education>(`${this.language}/${this.target}/${params.id}`).valueChanges();
         this.observer.subscribe(item => 
         {
           this.education = (item as Education);
@@ -77,23 +81,23 @@ export class FormComponent implements OnInit
 
     if(this.formGroup.valid)
     {
-      this.education.start = formatDate(this.education.start, 'yyyy-MM', 'zh-TW');
-      this.education.end = formatDate(this.education.end, 'yyyy-MM', 'zh-TW');
+      this.education.start = formatDate(this.education.start, 'yyyy-MM', this.language);
+      this.education.end = formatDate(this.education.end, 'yyyy-MM', this.language);
       
       if(this.is_create_mode)
       {
-        this.fb.list('zh_TW_educations').push(this.education).then(res => {
-          this.message.success(message['zh_TW'].success.create);
+        this.fb.list(`${this.language}/${this.target}`).push(this.education).then(res => {
+          this.message.success(message[this.language].success.create);
         });
       }
       else
       {
-        this.fb.object(`zh_TW_educations/${this.$key}`).update(this.education).then(res => {
-          this.message.success(message['zh_TW'].success.update);
+        this.fb.object(`${this.language}/${this.target}/${this.$key}`).update(this.education).then(res => {
+          this.message.success(message[this.language].success.update);
         });
       }
 
-      this.router.navigate(['/education']);
+      this.router.navigate([`/${this.target}`]);
     }
   }
 }

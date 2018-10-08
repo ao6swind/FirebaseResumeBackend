@@ -1,5 +1,5 @@
 <p>
-  <button nz-button nzType="default" routerLink="/project/create">
+  <button nz-button nzType="default" routerLink="/{{ target }}/create">
     <i class="anticon anticon-plus"></i>
     <span>新增</span>
   </button>
@@ -26,7 +26,7 @@
       <td>{{ data.project.type }}</td>
       <td>{{ data.project.is_public }}</td>
       <td>
-        <button nz-button nzType="default" nzSize="small" routerLink="/project/edit/{{ data.$key }}">
+        <button nz-button nzType="default" nzSize="small" routerLink="/{{ target }}/edit/{{ data.$key }}">
           <i class="anticon anticon-edit"></i>
           <span>修改</span>
         </button>

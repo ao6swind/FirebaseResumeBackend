@@ -1,3 +1,47 @@
 <p>
-  form works!
+  <button nz-button nzType="default" routerLink="/{{ target }}">
+    <i class="anticon anticon-plus"></i>
+    <span>回列表</span>
+  </button>
 </p>
+  
+<h2 [ngSwitch]="is_create_mode">
+  <span *ngSwitchCase="true">新增技能</span>
+  <span *ngSwitchCase="false">修改技能</span>
+</h2>
+  
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+  <nz-form-item>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="catelog>">類別</nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+      <input nz-input id="catelog" formControlName="catelog" [(ngModel)]="skill.catelog" placeholder="請輸入類別">
+      <nz-form-explain *ngIf="formGroup.get('catelog').dirty && formGroup.get('catelog').errors">請輸入類別</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="name">名稱</nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+      <input nz-input id="name" formControlName="name" [(ngModel)]="skill.name" placeholder="請輸入名稱">
+      <nz-form-explain *ngIf="formGroup.get('name').dirty && formGroup.get('name').errors">請輸入名稱</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="percentage">程度</nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+     
+      <nz-slider [nzMarks]="marks" [nzStep]="5" [nzDefaultValue]="0" id="percentage" formControlName="percentage" [(ngModel)]="skill.percentage"></nz-slider>
+      <nz-form-explain *ngIf="formGroup.get('percentage').dirty && formGroup.get('percentage').errors">請輸入程度</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzSm]="{ span: 20, offset: 4 }" [nzXs]="{ span: 24, offset: 0 }">
+      <button nz-button nzType="primary">
+        <i class="anticon anticon-save"></i>
+        <span>儲存</span>
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

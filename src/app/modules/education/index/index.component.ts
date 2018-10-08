@@ -9,11 +9,15 @@ import { message } from './../../../variables/message';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.less']
 })
+
 export class IndexComponent implements OnInit 
 {
   private isLoading: boolean = false;
   private educations: AngularFireList<Education>;
   private dataSet = [];
+
+  private language = 'zh_TW';
+  private target = 'education';
 
   constructor
   (
@@ -27,7 +31,7 @@ export class IndexComponent implements OnInit
   ngOnInit() 
   {
     this.isLoading =  true;
-    this.educations = this.fb.list('zh_TW_educations');
+    this.educations = this.fb.list(`${this.language}/${this.target}`);
     this.educations.snapshotChanges().subscribe(list => {
       this.dataSet = list.map(item => {
         return {
@@ -42,6 +46,6 @@ export class IndexComponent implements OnInit
   delete($key: string): void
   {
     this.educations.remove($key);
-    this.message.success(message['zh_TW'].success.delete);
+    this.message.success(message[this.language].success.delete);
   }
 }

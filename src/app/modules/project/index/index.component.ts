@@ -16,6 +16,9 @@ export class IndexComponent implements OnInit
   private projects: AngularFireList<Project>;
   private dataSet = [];
 
+  private language = 'zh_TW';
+  private target = 'project';
+
   constructor
   (
     private firebase: AngularFireDatabase,
@@ -27,7 +30,7 @@ export class IndexComponent implements OnInit
 
   ngOnInit() 
   {
-    this.projects = this.firebase.list('zh_TW_projects');
+    this.projects = this.firebase.list(`${this.language}/${this.target}`);
     this.projects.snapshotChanges().subscribe(list => {
       this.dataSet = list.map(item => {
         return {
@@ -45,6 +48,6 @@ export class IndexComponent implements OnInit
       firebase.storage().refFromURL(project.screens[i].url).delete();
     }
     this.projects.remove($key);
-    this.message.success(message['zh_TW'].success.delete);
+    this.message.success(message[this.language].success.delete);
   }
 }

@@ -1,5 +1,5 @@
 <p>
-  <button nz-button nzType="default" routerLink="/education">
+  <button nz-button nzType="default" routerLink="/{{ target }}">
     <i class="anticon anticon-plus"></i>
     <span>回列表</span>
   </button>
@@ -28,12 +28,12 @@
   </nz-form-item>
 
   <nz-form-item>
-      <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="department">科系</nz-form-label>
-      <nz-form-control [nzSm]="16" [nzXs]="24">
-        <input nz-input id="department" formControlName="department" [(ngModel)]="education.department" placeholder="請輸入科系">
-        <nz-form-explain *ngIf="formGroup.get('department').dirty && formGroup.get('department').errors">請輸入科系</nz-form-explain>
-      </nz-form-control>
-    </nz-form-item>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="department">科系</nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+      <input nz-input id="department" formControlName="department" [(ngModel)]="education.department" placeholder="請輸入科系">
+      <nz-form-explain *ngIf="formGroup.get('department').dirty && formGroup.get('department').errors">請輸入科系</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
   
   <nz-form-item>
     <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="major">主修</nz-form-label>
@@ -50,7 +50,7 @@
       <nz-form-explain *ngIf="formGroup.get('start').dirty && formGroup.get('start').errors">請輸入始業</nz-form-explain>
     </nz-form-control>
 
-    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="end">畢業</nz-form-label>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="end">畢業</nz-form-label>
     <nz-form-control [nzSm]="4" [nzXs]="24">
       <nz-month-picker id="end" formControlName="end" [(ngModel)]="education.end"></nz-month-picker>
     </nz-form-control>
