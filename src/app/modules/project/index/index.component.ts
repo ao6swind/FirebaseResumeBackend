@@ -1,10 +1,10 @@
-import { LanguageService } from './../../../services/language.service';
 import { Component, OnInit } from '@angular/core';
-import { NzMessageService } from 'ng-zorro-antd';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase';
-import { Project } from './../../../models/project.model';
+import { LanguageService } from './../../../services/language.service';
+import { NzMessageService } from 'ng-zorro-antd';
 import { message } from './../../../variables/message';
+import { Project } from './../../../models/project.model';
 
 @Component({
   selector: 'app-index',
@@ -14,17 +14,17 @@ import { message } from './../../../variables/message';
 
 export class IndexComponent implements OnInit 
 {
-  private projects: AngularFireList<Project>;
-  private dataSet = [];
+  public projects: AngularFireList<Project>;
+  public dataSet = [];
 
-  private language = 'zh-TW';
-  private target = 'project';
+  public language = 'zh-TW';
+  public target = 'project';
 
   constructor
   (
-    private firebase: AngularFireDatabase,
-    private message: NzMessageService,
-    private langService: LanguageService
+    public firebase: AngularFireDatabase,
+    public message: NzMessageService,
+    public langService: LanguageService
   ) 
   { 
     this.language = this.langService.getLanguage();

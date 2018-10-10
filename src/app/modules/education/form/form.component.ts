@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs';
-import { NzMessageService } from 'ng-zorro-antd';
 import { formatDate } from '@angular/common';
-import { Education } from './../../../models/education.model';
+import { Observable } from 'rxjs';
+// FireBase
+import { AngularFireDatabase } from 'angularfire2/database';
+// 服務
+import { NzMessageService } from 'ng-zorro-antd';
+import { LanguageService } from './../../../services/language.service';
+// 常用變數
 import { message } from './../../../variables/message';
+// model
+import { Education } from './../../../models/education.model';
 
 @Component({
   selector: 'app-form',
@@ -17,25 +22,27 @@ import { message } from './../../../variables/message';
 export class FormComponent implements OnInit 
 {
   // 屬性
-  private isCreateMode: boolean = true;
-  private form: FormGroup;
-  private education: Education = new Education();
-  private $key: string = '';
-  private observer: Observable<Education>;
+  public isCreateMode: boolean = true;
+  public form: FormGroup;
+  public education: Education = new Education();
+  public $key: string = '';
+  public observer: Observable<Education>;
 
-  private language = 'zh-TW';
-  private target = 'education';
+  public language = 'zh-TW';
+  public target = 'education';
 
   // 建構子
   constructor
   (
-    private route: ActivatedRoute,
-    private router: Router,
-    private builder: FormBuilder, 
-    private fb: AngularFireDatabase,
-    private message: NzMessageService
+    public route: ActivatedRoute,
+    public router: Router,
+    public builder: FormBuilder, 
+    public fb: AngularFireDatabase,
+    public message: NzMessageService,
+    public langService: LanguageService
   ) 
   { 
+    this.language = this.langService.getLanguage();
     if(this.route.routeConfig.path != "create")
     {
       this.isCreateMode = false;

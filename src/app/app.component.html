@@ -10,26 +10,26 @@
         <li nz-submenu>
           <span title>
             <i class="anticon anticon-user"></i>
-            <span>履歷</span>
+            <span i18n>履歷</span>
           </span>
           <ul>
-            <li nz-menu-item routerLink="introduction">個人資料</li>
-            <li nz-menu-item routerLink="certification">證照</li>
-            <li nz-menu-item routerLink="education">學歷</li>
-            <li nz-menu-item routerLink="experience">經歷</li>
-            <li nz-menu-item routerLink="skill">技能</li>
+            <li i18n nz-menu-item routerLink="introduction">個人資料</li>
+            <li i18n nz-menu-item routerLink="certification">證照</li>
+            <li i18n nz-menu-item routerLink="education">學歷</li>
+            <li i18n nz-menu-item routerLink="experience">經歷</li>
+            <li i18n nz-menu-item routerLink="skill">技能</li>
           </ul>
         </li>
         <li nz-menu-item nz-tooltip nzPlacement="right" routerLink="project">
           <span title>
             <i class="anticon anticon-code"></i>
-            <span>專案</span>
+            <span i18n>專案</span>
           </span>
         </li>
         <li nz-menu-item (click)="logout()">
             <span>
               <i class="anticon anticon-logout"></i>
-              <span class="nav-text">登出</span>
+              <span class="nav-text" i18n>登出</span>
             </span>
           </li>
       </ul>

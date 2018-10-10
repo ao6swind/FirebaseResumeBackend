@@ -13,7 +13,7 @@ export class LanguageService
 
   getLanguage(): string
   {
-    return (this.platformLocation.getBaseHrefFromDOM() != '/') ? this.platformLocation.getBaseHrefFromDOM().substring(1) : 'zh-TW';;
+    return (this.platformLocation.getBaseHrefFromDOM() != '/') ? this.platformLocation.getBaseHrefFromDOM().replace(/\//g,'') : 'zh-TW';;
   }
 
   getBaseHref(): string

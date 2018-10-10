@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { NzMessageService } from 'ng-zorro-antd';
+import { LanguageService } from './../../../services/language.service';
 import { message } from './../../../variables/message';
 import { Experience } from '../../../models/experience.model';
 
@@ -12,20 +13,21 @@ import { Experience } from '../../../models/experience.model';
 
 export class IndexComponent implements OnInit 
 {
-  private isLoading: boolean = false;
-  private experiences: AngularFireList<Experience>;
-  private dataSet = [];
+  public isLoading: boolean = false;
+  public experiences: AngularFireList<Experience>;
+  public dataSet = [];
 
-  private language = 'zh-TW';
-  private target = 'experience';
+  public language = 'zh-TW';
+  public target = 'experience';
 
   constructor
   (
-    private fb: AngularFireDatabase,
-    private message: NzMessageService
+    public fb: AngularFireDatabase,
+    public message: NzMessageService,
+    public langService: LanguageService
   ) 
   { 
-  
+    this.language = this.langService.getLanguage();
   }
   
   ngOnInit() 

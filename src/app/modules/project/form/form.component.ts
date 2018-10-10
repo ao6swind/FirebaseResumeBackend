@@ -4,11 +4,11 @@ import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
+import { NzMessageService } from 'ng-zorro-antd';
+import { LanguageService } from './../../../services/language.service';
+import { message } from './../../../variables/message';
 import { Project } from '../../../models/project.model';
 import { Uploaded } from '../../../models/uploaded.model';
-import { LanguageService } from './../../../services/language.service';
-import { NzMessageService } from 'ng-zorro-antd';
-import { message } from './../../../variables/message';
 
 @Component({
   selector: 'app-form',
@@ -19,25 +19,25 @@ import { message } from './../../../variables/message';
 export class FormComponent implements OnInit 
 {
   //
-  private isCreateMode: boolean = true;
-  private isLoading: boolean = false;
-  private form: FormGroup;
-  private $key: string = '';
-  private project: Project = new Project();
-  private observer: Observable<Project>;
-  private uploaded_list: Array<Uploaded> = new Array<Uploaded>();
-  
-  private language = 'zh-TW';
-  private target = 'project';
+  public isCreateMode: boolean = true;
+  public isLoading: boolean = false;
+  public form: FormGroup;
+  public $key: string = '';
+  public project: Project = new Project();
+  public observer: Observable<Project>;
+  public uploaded_list: Array<Uploaded> = new Array<Uploaded>();
+
+  public language = 'zh-TW';
+  public target = 'project';
 
   constructor
   (
-    private route: ActivatedRoute,
-    private router: Router,
-    private builder: FormBuilder, 
-    private fb: AngularFireDatabase,
-    private message: NzMessageService,
-    private langService: LanguageService
+    public route: ActivatedRoute,
+    public router: Router,
+    public builder: FormBuilder, 
+    public fb: AngularFireDatabase,
+    public message: NzMessageService,
+    public langService: LanguageService
   ) 
   { 
     this.language = this.langService.getLanguage();

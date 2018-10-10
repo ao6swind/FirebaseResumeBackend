@@ -1,10 +1,10 @@
 import { title } from './variables/title';
 import { LanguageService } from './services/language.service';
 import { Component } from '@angular/core';
-import { PlatformLocation } from "@angular/common";
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { en_US, zh_TW, NzI18nService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-root',
@@ -14,18 +14,35 @@ import * as firebase from 'firebase/app';
 
 export class AppComponent 
 {
-  private isCollapsed: boolean = false;
-  private current: string = Date.now().toString();
-  private language: string = 'zh-TW';
+  public isCollapsed: boolean = false;
+  public current: string = Date.now().toString();
+  public language: string = 'zh-TW';
 
   constructor
   (
-    private afAuth: AngularFireAuth, 
-    private router: Router,
-    private langService: LanguageService
+    public afAuth: AngularFireAuth, 
+    public router: Router,
+    public langService: LanguageService,
+    public i18nService: NzI18nService
   ) 
   {
-    document.title = title[this.langService.getLanguage()];
+    // 從base href取的當前語言
+    this.language = this.langService.getLanguage();
+    
+    // 設定網頁標題
+    document.title = title[this.language];
+
+    // 切換ng-zorro的語系
+    switch(this.language)
+    {
+      case 'zh-TW':
+        this.i18nService.setLocale(zh_TW);
+        break;
+      case 'en-US':
+        this.i18nService.setLocale(en_US);
+        break;
+    }
+
     this.afAuth.authState.subscribe((user: firebase.User) => {
       if (user == null) 
       {

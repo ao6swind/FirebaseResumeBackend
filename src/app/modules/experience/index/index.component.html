@@ -2,11 +2,11 @@
   <div nz-col nzSpan="8">
     <button nz-button nzType="default" routerLink="/{{ target }}/create">
       <i class="anticon anticon-plus"></i>
-      <span>新增</span>
+      <span i18n>新增</span>
     </button>
   </div>
   <div nz-col nzSpan="8">
-    <h2 class="txt-page-title">經歷列表</h2>
+    <h2 i18n class="txt-page-title">經歷列表</h2>
   </div>
 </div>
 
@@ -18,11 +18,11 @@
   [nzPageSizeOptions]="[ 5, 10, 15 ]">
   <thead>
     <tr>
-      <th>單位</th>
-      <th>部門</th>
-      <th>職稱</th>
-      <th>開始</th>
-      <th>結束</th>
+      <th i18n>單位</th>
+      <th i18n>部門</th>
+      <th i18n>職稱</th>
+      <th i18n>開始</th>
+      <th i18n>結束</th>
       <th></th>
     </tr>
   </thead>
@@ -36,12 +36,13 @@
       <td>
         <button nz-button nzType="default" nzSize="small" routerLink="/{{ target }}/edit/{{ data.$key }}">
           <i class="anticon anticon-edit"></i>
-          <span>修改</span>
+          <span i18n>修改</span>
         </button>
         <nz-divider nzType="vertical"></nz-divider>
-        <button nz-button nzType="danger" nzSize="small" nz-popconfirm nzTitle="確定要刪除嗎？" (nzOnConfirm)="delete(data.$key)">
+        <button nz-button nzType="danger" nzSize="small" 
+          nz-popconfirm (nzOnConfirm)="delete(data.$key)" nzTitle="確定要刪除嗎？" i18n-nzTitle>
           <i class="anticon anticon-delete"></i>
-          <span>刪除</span>
+          <span i18n>刪除</span>
         </button>
       </td>
     </tr>

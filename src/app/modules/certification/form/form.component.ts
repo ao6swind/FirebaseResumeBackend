@@ -1,15 +1,19 @@
-import { Certification } from './../../../models/certification.model';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { formatDate } from '@angular/common';
-import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
+// Firebase
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
-import { Uploaded } from '../../../models/uploaded.model';
-import { LanguageService } from './../../../services/language.service';
+// 服務
 import { NzMessageService } from 'ng-zorro-antd';
+import { LanguageService } from './../../../services/language.service';
+// 常用變數
 import { message } from './../../../variables/message';
+// model
+import { Uploaded } from '../../../models/uploaded.model';
+import { Certification } from './../../../models/certification.model';
 
 @Component({
   selector: 'app-form',
@@ -18,25 +22,25 @@ import { message } from './../../../variables/message';
 })
 export class FormComponent implements OnInit 
 {
-  private isCreateMode: boolean = true;
-  private isLoading: boolean = false;
-  private form: FormGroup;
-  private $key: string = '';
-  private certification: Certification = new Certification();
-  private observer: Observable<Certification>;
-  private uploaded: Uploaded = new Uploaded();
-  
-  private language = 'zh-TW';
-  private target = 'certification';
+  public isCreateMode: boolean = true;
+  public isLoading: boolean = false;
+  public form: FormGroup;
+  public $key: string = '';
+  public certification: Certification = new Certification();
+  public observer: Observable<Certification>;
+  public uploaded: Uploaded = new Uploaded();
+
+  public language = 'zh-TW';
+  public target = 'certification';
 
   constructor
   (
-    private route: ActivatedRoute,
-    private router: Router,
-    private builder: FormBuilder, 
-    private fb: AngularFireDatabase,
-    private message: NzMessageService,
-    private langService: LanguageService
+    public route: ActivatedRoute,
+    public router: Router,
+    public builder: FormBuilder, 
+    public fb: AngularFireDatabase,
+    public message: NzMessageService,
+    public langService: LanguageService
   ) 
   { 
     this.language = this.langService.getLanguage();

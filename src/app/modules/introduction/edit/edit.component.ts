@@ -1,51 +1,54 @@
-import { Uploaded } from './../../../models/uploaded.model';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
-import { Introduction } from './../../../models/introduction.model';
-
-import * as firebase from 'firebase';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
+// Firebase相關
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs';
+import * as firebase from 'firebase';
+// 服務
 import { NzMessageService } from 'ng-zorro-antd';
+import { LanguageService } from './../../../services/language.service';
+// 常用變數
 import { message } from './../../../variables/message';
+// model
+import { Introduction } from './../../../models/introduction.model';
 import { Link } from '../../../models/link.model';
-
+import { Uploaded } from './../../../models/uploaded.model';
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.less']
 })
+
 export class EditComponent implements OnInit 
 {
-  private form: FormGroup;
-  private isLoading: boolean = true;
-  private $key: string;
-  private introduction: Introduction = new Introduction();
-  private dataSet = [];
-  private introductions: AngularFireList<Introduction>;
+  public form: FormGroup;
+  public isLoading: boolean = true;
+  public $key: string;
+  public introduction: Introduction = new Introduction();
+  public dataSet = [];
+  public introductions: AngularFireList<Introduction>;
 
-  private uploaded: any = 
+  public uploaded: any = 
   {
     photo: new Uploaded(),
     resume: new Uploaded()
   };
 
-  private language = 'zh-TW';
-  private target = 'introduction';
+  public language = 'zh-TW';
+  public target = 'introduction';
 
   constructor
   (
-    private route: ActivatedRoute,
-    private router: Router,
-    private builder: FormBuilder, 
-    private fb: AngularFireDatabase,
-    private message: NzMessageService
+    public route: ActivatedRoute,
+    public router: Router,
+    public builder: FormBuilder, 
+    public fb: AngularFireDatabase,
+    public message: NzMessageService,
+    public langService: LanguageService
   ) 
   { 
-    
+    this.language = this.langService.getLanguage();
     this.introductions = this.fb.list(`${this.language}/${this.target}`);
     this.introductions.snapshotChanges().subscribe(list => {
       this.dataSet = list.map(item => {

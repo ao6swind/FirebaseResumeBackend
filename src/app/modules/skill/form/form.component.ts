@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd';
+import { LanguageService } from './../../../services/language.service';
 import { Skill } from './../../../models/skill.model';
 import { message } from './../../../variables/message';
 
@@ -16,16 +17,16 @@ import { message } from './../../../variables/message';
 export class FormComponent implements OnInit 
 {
   // 屬性
-  private isCreateMode: boolean = true;
-  private form: FormGroup;
-  private skill: Skill = new Skill();
-  private $key: string = '';
-  private observer: Observable<Skill>;
+  public isCreateMode: boolean = true;
+  public form: FormGroup;
+  public skill: Skill = new Skill();
+  public $key: string = '';
+  public observer: Observable<Skill>;
 
-  private language = 'zh-TW';
-  private target = 'skill';
+  public language = 'zh-TW';
+  public target = 'skill';
 
-  private marks: any = {
+  public marks: any = {
     0: '0%',
     20: '20%',
     40: '40%',
@@ -37,13 +38,15 @@ export class FormComponent implements OnInit
   // 建構子
   constructor
   (
-    private route: ActivatedRoute,
-    private router: Router,
-    private builder: FormBuilder, 
-    private fb: AngularFireDatabase,
-    private message: NzMessageService
+    public route: ActivatedRoute,
+    public router: Router,
+    public builder: FormBuilder, 
+    public fb: AngularFireDatabase,
+    public message: NzMessageService,
+    public langService: LanguageService
   ) 
   { 
+    this.language = this.langService.getLanguage();
     if(this.route.routeConfig.path != "create")
     {
       this.isCreateMode = false;

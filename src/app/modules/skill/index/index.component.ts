@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { NzMessageService } from 'ng-zorro-antd';
+import { LanguageService } from '../../../services/language.service';
 import { message } from './../../../variables/message';
 import { Skill } from '../../../models/skill.model';
 
@@ -12,20 +13,21 @@ import { Skill } from '../../../models/skill.model';
 
 export class IndexComponent implements OnInit 
 {
-  private isLoading: boolean = false;
-  private skills: AngularFireList<Skill>;
-  private dataSet = [];
+  public isLoading: boolean = false;
+  public skills: AngularFireList<Skill>;
+  public dataSet = [];
 
-  private language = 'zh-TW';
-  private target = 'skill';
+  public language = 'zh-TW';
+  public target = 'skill';
 
   constructor
   (
-    private fb: AngularFireDatabase,
-    private message: NzMessageService
+    public fb: AngularFireDatabase,
+    public message: NzMessageService,
+    public langService: LanguageService
   ) 
   { 
-  
+    this.language = this.langService.getLanguage();
   }
   
   ngOnInit() 

@@ -49,6 +49,28 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "en": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "baseHref": "/en-US/",
+              "outputPath": "dist/en-US/",
+              "i18nFile": "src/locale/en-US/source.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en-US"
             }
           }
         },
@@ -60,6 +82,9 @@
           "configurations": {
             "production": {
               "browserTarget": "ResumeBackend:build:production"
+            },
+            "en":{
+              "browserTarget": "ResumeBackend:build:en"
             }
           }
         },

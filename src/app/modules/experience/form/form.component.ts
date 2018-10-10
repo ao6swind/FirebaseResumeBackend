@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { formatDate } from '@angular/common';
 import { Observable } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd';
-import { formatDate } from '@angular/common';
-import { Experience } from './../../../models/experience.model';
+import { LanguageService } from './../../../services/language.service';
 import { message } from './../../../variables/message';
+import { Experience } from './../../../models/experience.model';
 
 @Component({
   selector: 'app-form',
@@ -17,25 +18,27 @@ import { message } from './../../../variables/message';
 export class FormComponent implements OnInit 
 {
   // 屬性
-  private isCreateMode: boolean = true;
-  private form: FormGroup;
-  private experience: Experience = new Experience();
-  private $key: string = '';
-  private observer: Observable<Experience>;
+  public isCreateMode: boolean = true;
+  public form: FormGroup;
+  public experience: Experience = new Experience();
+  public $key: string = '';
+  public observer: Observable<Experience>;
 
-  private language = 'zh-TW';
-  private target = 'experience';
+  public language = 'zh-TW';
+  public target = 'experience';
 
   // 建構子
   constructor
   (
-    private route: ActivatedRoute,
-    private router: Router,
-    private builder: FormBuilder, 
-    private fb: AngularFireDatabase,
-    private message: NzMessageService
+    public route: ActivatedRoute,
+    public router: Router,
+    public builder: FormBuilder, 
+    public fb: AngularFireDatabase,
+    public message: NzMessageService,
+    public langService: LanguageService,
   ) 
   { 
+    this.language = this.langService.getLanguage();
     if(this.route.routeConfig.path != "create")
     {
       this.isCreateMode = false;
