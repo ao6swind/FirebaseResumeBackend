@@ -10,12 +10,10 @@ import { Uploaded } from '../../../../models/uploaded.model';
 })
 export class ScreenComponent implements OnInit {
 
-  @Input() screens: Array<ScreenImage>;
-  @Input() uploaded_list: Array<Uploaded>;
   @Input() form: FormGroup;
   @Input() builder: FormBuilder;
-
-  private hideConfirm: boolean = true;
+  @Input() uploaded_list: Array<Uploaded>;
+  @Input() screens: Array<ScreenImage>;
 
   constructor() 
   { 
@@ -29,8 +27,7 @@ export class ScreenComponent implements OnInit {
 
   addColumn(): void 
   {
-    const column = new ScreenImage();
-    this.screens.push(column);
+    this.screens.push(new ScreenImage());
     this.uploaded_list.push(new Uploaded());
 
     (this.form.get('screens') as FormArray).push(this.builder.group({

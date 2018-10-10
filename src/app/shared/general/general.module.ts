@@ -1,3 +1,4 @@
+import { LoadingComponent } from './../component/loading/loading.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -23,9 +24,12 @@ registerLocaleData(zh);
 @NgModule({
   imports: [
     CommonModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig)
     // 取消FormControl和NgModel並存時候的警示訊息
     //ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
+  ],
+  declarations: [
+    LoadingComponent
   ],
   exports: [
     FormsModule,
@@ -34,7 +38,8 @@ registerLocaleData(zh);
     NgZorroAntdModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    LoadingComponent
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_TW }]
 })

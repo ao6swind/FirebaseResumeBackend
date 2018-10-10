@@ -1,3 +1,44 @@
-<p>
-  index works!
-</p>
+<div nz-row>
+  <div nz-col nzSpan="8">
+    <button nz-button nzType="default" routerLink="/{{ target }}/create">
+      <i class="anticon anticon-plus"></i>
+      <span>新增</span>
+    </button>
+  </div>
+  <div nz-col nzSpan="8">
+    <h2 class="txt-page-title">證照列表</h2>
+  </div>
+</div>
+
+<nz-table 
+  #pnlTable
+  [nzData]="dataSet" 
+  [nzShowSizeChanger]="true"
+  [nzPageSizeOptions]="[ 5, 10, 15 ]">
+  <thead>
+    <tr>
+      <th>名稱</th>
+      <th>發政單位</th>
+      <th>有效期限</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of pnlTable.data">
+      <td>{{ data.certification.name }}</td>
+      <td>{{ data.certification.from }}</td>
+      <td>{{ data.certification.expired }}</td>
+      <td>
+        <button nz-button nzType="default" nzSize="small" routerLink="/{{ target }}/edit/{{ data.$key }}">
+          <i class="anticon anticon-edit"></i>
+          <span>修改</span>
+        </button>
+        <nz-divider nzType="vertical"></nz-divider>
+        <button nz-button nzType="danger" nzSize="small" nz-popconfirm nzTitle="確定要刪除嗎？" (nzOnConfirm)="delete(data.$key, data.certification)">
+          <i class="anticon anticon-delete"></i>
+          <span>刪除</span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

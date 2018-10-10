@@ -9,9 +9,9 @@ import { Keyword } from './../../../../models/keyword.model';
 })
 export class KeywordComponent implements OnInit {
 
-  @Input() keywords: Array<Keyword>
   @Input() form: FormGroup;
   @Input() builder: FormBuilder;
+  @Input() keywords: Array<Keyword>
 
   constructor() 
   { 
@@ -25,8 +25,7 @@ export class KeywordComponent implements OnInit {
 
   addColumn(): void 
   {
-    const column = new Keyword();
-    this.keywords.push(column);
+    this.keywords.push(new Keyword());
 
     (this.form.get('keywords') as FormArray).push(this.builder.group({
       content: [ null, [ Validators.required ] ]

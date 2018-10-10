@@ -1,142 +1,148 @@
-<p>
-  <button nz-button nzType="default" routerLink="/{{ target }}">
-    <i class="anticon anticon-plus"></i>
-    <span>回列表</span>
-  </button>
-</p>
+<app-loading *ngIf="isLoading"></app-loading>
 
-<h2 [ngSwitch]="is_create_mode">
-  <span *ngSwitchCase="true">新增專案</span>
-  <span *ngSwitchCase="false">修改專案</span>
-</h2>
-  
-<form [formGroup]="formGroup" (ngSubmit)="submit()">
-  <nz-tabset>
-    <nz-tab nzTitle="基本資訊">
-      <nz-form-item>
-        <nz-form-control [nzSm]="12" [nzXs]="24">
-          <nz-form-item>
-            <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="title">專案名稱</nz-form-label>
-            <nz-form-control [nzSm]="16" [nzXs]="24">
-              <input nz-input id="title" formControlName="title" [(ngModel)]="project.title" placeholder="請輸入專案名稱">
-              <nz-form-explain *ngIf="formGroup.get('title').dirty && formGroup.get('title').errors">請輸入專案名稱</nz-form-explain>
-            </nz-form-control>
-          </nz-form-item>
+<div *ngIf="!isLoading">
+  <div nz-row>
+    <div nz-col nzSpan="8">
+      <button nz-button nzType="default" routerLink="/{{ target }}">
+        <i class="anticon anticon-arrow-left"></i>
+        <span>回列表</span>
+      </button>
+    </div>
+    <div nz-col nzSpan="8">
+      <h2 class="txt-page-title" [ngSwitch]="isCreateMode">
+        <span *ngSwitchCase="true">新增專案</span>
+        <span *ngSwitchCase="false">修改專案</span>
+      </h2>
+    </div>
+  </div>
+    
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <nz-tabset [nzTabBarExtraContent]="extraTemplate">
+      <nz-tab nzTitle="基本資訊">
+        <nz-form-item>
+          <nz-form-control [nzSm]="12" [nzXs]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="title">專案名稱</nz-form-label>
+              <nz-form-control [nzSm]="16" [nzXs]="24">
+                <input nz-input id="title" formControlName="title" [(ngModel)]="project.title" placeholder="請輸入專案名稱">
+                <nz-form-explain *ngIf="form.get('title').dirty && form.get('title').errors">請輸入專案名稱</nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
 
-          <nz-form-item>
-            <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="type">專案類型</nz-form-label>
-            <nz-form-control [nzSm]="16" [nzXs]="24">
-              <nz-select id="type" formControlName="type" [(ngModel)]="project.type" nzAllowClear nzPlaceHolder="請選擇專案類型">
-                <nz-option nzLabel="桌面應用程式" nzValue="桌面應用程式"></nz-option>
-                <nz-option nzLabel="網頁應用程式" nzValue="網頁應用程式"></nz-option>
-              </nz-select>
-              <nz-form-explain *ngIf="formGroup.get('title').dirty && formGroup.get('title').errors">請選擇專案類型</nz-form-explain>
-            </nz-form-control>
-          </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="type">專案類型</nz-form-label>
+              <nz-form-control [nzSm]="16" [nzXs]="24">
+                <nz-select id="type" formControlName="type" [(ngModel)]="project.type" nzAllowClear nzPlaceHolder="請選擇專案類型">
+                  <nz-option nzLabel="桌面應用程式" nzValue="桌面應用程式"></nz-option>
+                  <nz-option nzLabel="網頁應用程式" nzValue="網頁應用程式"></nz-option>
+                </nz-select>
+                <nz-form-explain *ngIf="form.get('title').dirty && form.get('title').errors">請選擇專案類型</nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
 
-          <nz-form-item>
-            <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="url">專案網址</nz-form-label>
-            <nz-form-control [nzSm]="16" [nzXs]="24">
-              <input nz-input id="url" formControlName="url" [(ngModel)]="project.url" placeholder="請輸入網址">
-              <nz-form-explain *ngIf="formGroup.get('url').dirty && formGroup.get('url').errors">請輸入網址</nz-form-explain>
-            </nz-form-control>
-          </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="url">專案網址</nz-form-label>
+              <nz-form-control [nzSm]="16" [nzXs]="24">
+                <input nz-input id="url" formControlName="url" [(ngModel)]="project.url" placeholder="請輸入網址">
+                <nz-form-explain *ngIf="form.get('url').dirty && form.get('url').errors">請輸入網址</nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
 
-          <nz-form-item>
-            <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="is_public">公開網址</nz-form-label>
-            <nz-form-control [nzSm]="16" [nzXs]="24">
-              <nz-radio-group id="is_public" formControlName="is_public" [(ngModel)]="project.is_public">
-                <label nz-radio nzValue="是">是</label>
-                <label nz-radio nzValue="否">否</label>
-              </nz-radio-group>
-              <nz-form-explain *ngIf="formGroup.get('is_public').dirty && formGroup.get('is_public').errors">請選擇是否公開專案網址</nz-form-explain>
-            </nz-form-control>
-          </nz-form-item>
-        </nz-form-control>
-        
-        <nz-form-control [nzSm]="12" [nzXs]="24">
-          <nz-form-item>
-            <nz-form-label [nzSm]="2" [nzXs]="24" nzFor="description">簡介</nz-form-label>
-            <nz-form-control [nzSm]="22" [nzXs]="24">
-              <textarea nz-input id="udescriptionrl" formControlName="description" [(ngModel)]="project.description" placeholder="請輸入簡介" rows="10"></textarea>
-            </nz-form-control>
-          </nz-form-item>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-control [nzSm]="{ span: 22, offset: 2 }" [nzXs]="24">
-          <button nz-button nzType="primary">
-            <i class="anticon anticon-save"></i>
-            <span>儲存</span>
-          </button>
-        </nz-form-control>
-      </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="is_public">公開網址</nz-form-label>
+              <nz-form-control [nzSm]="16" [nzXs]="24">
+                <nz-radio-group id="is_public" formControlName="is_public" [(ngModel)]="project.is_public">
+                  <label nz-radio nzValue="是">是</label>
+                  <label nz-radio nzValue="否">否</label>
+                </nz-radio-group>
+                <nz-form-explain *ngIf="form.get('is_public').dirty && form.get('is_public').errors">請選擇是否公開專案網址</nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
 
-      <nz-form-item>
-        <nz-form-control [nzSm]="{ span: 22, offset: 2 }" [nzXs]="24">
-          <nz-form-explain *ngIf="formGroup.get('keywords').hasError('required')">請新增至少一組關鍵字</nz-form-explain>
-          <nz-form-explain *ngIf="formGroup.get('milestones').hasError('required')">請新增至少一個里程碑</nz-form-explain>
-          <nz-form-explain *ngIf="formGroup.get('screens').hasError('required')">請新增至少一張畫面</nz-form-explain>
-        </nz-form-control>
-      </nz-form-item>
-    </nz-tab>
+            <nz-form-item>
+              <nz-form-control [nzSm]="{ span: 16, offset: 4 }" [nzXs]="24">
+                <nz-form-explain *ngIf="form.get('keywords').hasError('required')">請新增至少一組關鍵字</nz-form-explain>
+                <nz-form-explain *ngIf="form.get('milestones').hasError('required')">請新增至少一個里程碑</nz-form-explain>
+                <nz-form-explain *ngIf="form.get('screens').hasError('required')">請新增至少一張畫面</nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-form-control>
+          
+          <nz-form-control [nzSm]="12" [nzXs]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="2" [nzXs]="24" nzFor="description">簡介</nz-form-label>
+              <nz-form-control [nzSm]="22" [nzXs]="24">
+                <textarea nz-input id="udescriptionrl" formControlName="description" [(ngModel)]="project.description" placeholder="請輸入簡介" rows="20"></textarea>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-tab>
 
-    <nz-tab nzTitle="關鍵字">
-      <nz-form-item>
-        <nz-form-control [nzSm]="12" [nzXs]="24">
-          <app-keyword [keywords]="project.keywords" [form]="formGroup" [builder]="builder"></app-keyword>
-        </nz-form-control>
-        <nz-form-control [nzSm]="{ span: 10, offset: 2 }" [nzXs]="24">
-          <nz-card nzHoverable style="width:100%" [nzCover]="pnlProjectConver">
-            <nz-card-meta 
-              [nzTitle]="(project.title != null && project.title != '') ? project.title : '[專案名稱]'" 
-              [nzDescription]="(project.type != null && project.type != '') ? project.type : '[專案類型]'">
-            </nz-card-meta>
-            <div>
-              <span *ngFor="let keyword of project.keywords">
-                <i class="anticon anticon-tag"></i>
-                {{ keyword.content }}
-              </span>
-            </div>
-          </nz-card>
-          <ng-template #pnlProjectConver>
-            <img alt="專案預覽圖" src="{{ (files.length > 0 && files[0].content != null) ? files[0].content : 'assets/img/card.png' }}"/>
-          </ng-template>
-        </nz-form-control>
-      </nz-form-item>
-    </nz-tab>
+      <nz-tab nzTitle="關鍵字">
+        <nz-form-item>
+          <nz-form-control [nzSm]="12" [nzXs]="24">
+            <app-keyword [keywords]="project.keywords" [form]="form" [builder]="builder"></app-keyword>
+          </nz-form-control>
+          <nz-form-control [nzSm]="{ span: 10, offset: 2 }" [nzXs]="24">
+            <nz-card nzHoverable style="width:100%" [nzCover]="pnlProjectConver">
+              <nz-card-meta 
+                [nzTitle]="(project.title != null && project.title != '') ? project.title : '[專案名稱]'" 
+                [nzDescription]="(project.type != null && project.type != '') ? project.type : '[專案類型]'">
+              </nz-card-meta>
+              <div>
+                <span *ngFor="let keyword of project.keywords">
+                  <i class="anticon anticon-tag"></i>
+                  {{ keyword.content }}
+                </span>
+              </div>
+            </nz-card>
+            <ng-template #pnlProjectConver>
+              <img alt="專案預覽圖" src="{{ (uploaded_list.length > 0 && uploaded_list[0].content != null) ? uploaded_list[0].content : 'assets/img/card.png' }}"/>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-tab>
 
-    <nz-tab nzTitle="里程碑">
-      <nz-form-item>
-        <nz-form-control [nzSm]="12" [nzXs]="24">
-          <app-milestone [milestones]="project.milestones" [form]="formGroup" [builder]="builder"></app-milestone>
-        </nz-form-control>
-        <nz-form-control [nzSm]="{span:11,offset:1}" [nzXs]="24" nzAlign="middle">
-          <nz-timeline>
-            <nz-timeline-item *ngFor="let milestone of project.milestones; let i = index">
-              <p>{{ (milestone.datetime != null && milestone.datetime != '') ? (milestone.datetime | date:'yyyy-MM-dd') : '[時間]' }}</p>
-              <p>{{ (milestone.description != null && milestone.description != '') ? milestone.description : '[敘述]' }}</p>
-            </nz-timeline-item>
-          </nz-timeline>
-        </nz-form-control>
-      </nz-form-item>
-    </nz-tab>
+      <nz-tab nzTitle="里程碑">
+        <nz-form-item>
+          <nz-form-control [nzSm]="12" [nzXs]="24">
+            <app-milestone [milestones]="project.milestones" [form]="form" [builder]="builder"></app-milestone>
+          </nz-form-control>
+          <nz-form-control [nzSm]="{span:11,offset:1}" [nzXs]="24" nzAlign="middle">
+            <nz-timeline>
+              <nz-timeline-item *ngFor="let milestone of project.milestones; let i = index">
+                <p>{{ (milestone.datetime != null && milestone.datetime != '') ? (milestone.datetime | date:'yyyy-MM-dd') : '[時間]' }}</p>
+                <p>{{ (milestone.description != null && milestone.description != '') ? milestone.description : '[敘述]' }}</p>
+              </nz-timeline-item>
+            </nz-timeline>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-tab>
 
-    <nz-tab nzTitle="畫面截圖">
-      <nz-form-item>
-        <nz-form-control [nzSm]="12" [nzXs]="24">
-          <app-screen [screens]="project.screens" [uploaded_list]="uploaded_list" [form]="formGroup" [builder]="builder"></app-screen>
-        </nz-form-control>
-        <nz-form-control [nzSm]="12" [nzXs]="24">
-          <nz-carousel nzAutoPlay>
-            <div nz-carousel-content *ngFor="let screen of project.screens; let i = index">
-              <img src="{{ (files[i].content != null) ? files[i].content : 'assets/img/card.png' }}">
-              <h3>{{ (screen.title != '' && screen.title != null) ? screen.title : '[標題]' }}</h3>
-              <p>{{ (screen.description != '' && screen.description != null) ? screen.description : '[敘述]' }}</p>
-            </div>
-          </nz-carousel>
-        </nz-form-control>
-      </nz-form-item>
-    </nz-tab>
-  </nz-tabset>
-</form>
+      <nz-tab nzTitle="畫面截圖">
+        <nz-form-item>
+          <nz-form-control [nzSm]="12" [nzXs]="24">
+            <app-screen [screens]="project.screens" [uploaded_list]="uploaded_list" [form]="form" [builder]="builder"></app-screen>
+          </nz-form-control>
+          <nz-form-control [nzSm]="12" [nzXs]="24">
+            <nz-carousel nzAutoPlay>
+              <div nz-carousel-content *ngFor="let screen of project.screens; let i = index">
+                <img src="{{ (uploaded_list[i].content != null) ? uploaded_list[i].content : 'assets/img/card.png' }}">
+                <h3>{{ (screen.title != '' && screen.title != null) ? screen.title : '[標題]' }}</h3>
+                <p>{{ (screen.description != '' && screen.description != null) ? screen.description : '[敘述]' }}</p>
+              </div>
+            </nz-carousel>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-tab>
+    </nz-tabset>
+
+    <ng-template #extraTemplate>
+      <button nz-button nzType="primary">
+        <i class="anticon anticon-save"></i>
+        <span>儲存</span>
+      </button>
+    </ng-template>
+  </form>
+</div>

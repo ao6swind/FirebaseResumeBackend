@@ -1,7 +1,8 @@
 export const message = 
 {
-    zh_TW: 
+    "zh-TW": 
     {
+        loading: "載入中...",
         success:
         {
             create: "新增成功！",
@@ -15,8 +16,9 @@ export const message =
             delete: "刪除失敗！"
         }
     },
-    en_US: 
+    "en-US": 
     {
+        loading: "Loading...",
         success:
         {
             create: "Create success!",

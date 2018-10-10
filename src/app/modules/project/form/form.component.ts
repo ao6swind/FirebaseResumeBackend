@@ -6,6 +6,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { Project } from '../../../models/project.model';
 import { Uploaded } from '../../../models/uploaded.model';
+import { LanguageService } from './../../../services/language.service';
 import { NzMessageService } from 'ng-zorro-antd';
 import { message } from './../../../variables/message';
 
@@ -18,14 +19,15 @@ import { message } from './../../../variables/message';
 export class FormComponent implements OnInit 
 {
   //
-  private is_create_mode: boolean = true;
-  private formGroup: FormGroup;
+  private isCreateMode: boolean = true;
+  private isLoading: boolean = false;
+  private form: FormGroup;
   private $key: string = '';
   private project: Project = new Project();
   private observer: Observable<Project>;
   private uploaded_list: Array<Uploaded> = new Array<Uploaded>();
   
-  private language = 'zh_TW';
+  private language = 'zh-TW';
   private target = 'project';
 
   constructor
@@ -34,15 +36,16 @@ export class FormComponent implements OnInit
     private router: Router,
     private builder: FormBuilder, 
     private fb: AngularFireDatabase,
-    private message: NzMessageService
+    private message: NzMessageService,
+    private langService: LanguageService
   ) 
   { 
-    
+    this.language = this.langService.getLanguage();
   }
 
   ngOnInit() 
   {
-    this.formGroup = this.builder.group({
+    this.form = this.builder.group({
       title:        [ null, [ Validators.required ] ],
       type:         [ null, [ Validators.required ] ],
       is_public:    [ null, [ Validators.required ] ],
@@ -55,7 +58,8 @@ export class FormComponent implements OnInit
     
     if(this.route.routeConfig.path != "create")
     {
-      this.is_create_mode = false;
+      this.isLoading = true;
+      this.isCreateMode = false;
       this.route.params.subscribe(params => 
       {
         this.$key = params.id;
@@ -71,14 +75,14 @@ export class FormComponent implements OnInit
 
           for(let i = 0; i <= this.project.keywords.length - 1; i++)
           {
-            (this.formGroup.get('keywords') as FormArray).push(this.builder.group({
+            (this.form.get('keywords') as FormArray).push(this.builder.group({
               content: [ null, [ Validators.required ] ]
             }));
           }
 
           for(let i = 0; i <= this.project.milestones.length - 1; i++)
           {
-            (this.formGroup.get('milestones') as FormArray).push(this.builder.group({
+            (this.form.get('milestones') as FormArray).push(this.builder.group({
               datetime:     [ null, [ Validators.required ] ],
               description:  [ null, [ Validators.required ] ]
             }));
@@ -90,12 +94,13 @@ export class FormComponent implements OnInit
             uploaded.content = this.project.screens[i].url;
             this.uploaded_list.push(uploaded);
 
-            (this.formGroup.get('screens') as FormArray).push(this.builder.group({
+            (this.form.get('screens') as FormArray).push(this.builder.group({
               title:        [ null, [ Validators.required ] ],
               url:          [ null ],
               description:  [ null ]
             }));
           }
+          this.isLoading = false;
         });
       });
     }
@@ -104,11 +109,11 @@ export class FormComponent implements OnInit
   submit()
   {
     // 這一段應該可以寫遞迴，這樣就可以驗證更深層的FormArray了
-    for (const i in this.formGroup.controls) 
+    for (const i in this.form.controls) 
     {
-      if (this.formGroup.controls[i].hasOwnProperty('controls')) 
+      if (this.form.controls[i].hasOwnProperty('controls')) 
       {
-        const formArray = <any>this.formGroup.controls[i];
+        const formArray = <any>this.form.controls[i];
         for (const j in formArray.controls) 
         {
           const formControl = <any>formArray.controls[j]
@@ -121,14 +126,14 @@ export class FormComponent implements OnInit
       }
       else
       {
-        this.formGroup.controls[i].markAsDirty();
-        this.formGroup.controls[i].updateValueAndValidity();
+        this.form.controls[i].markAsDirty();
+        this.form.controls[i].updateValueAndValidity();
       }
     }
     
-    if(this.formGroup.valid)
+    if(this.form.valid)
     {
-      if(this.is_create_mode)
+      if(this.isCreateMode)
       {
         const key =  this.fb.list(`${this.language}/${this.target}`).push(this.project).key;
         const storage = firebase.storage().ref()

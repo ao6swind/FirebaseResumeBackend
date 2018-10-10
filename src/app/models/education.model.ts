@@ -4,6 +4,6 @@ export class Education
     public school: string;
     public department: string;
     public major: string;
-    public start: string = '';
-    public end: string = '';
+    public start: string;
+    public end: string;
 }

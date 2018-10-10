@@ -1,14 +1,17 @@
-<p>
-  <button nz-button nzType="default" routerLink="/{{ target }}/create">
-    <i class="anticon anticon-plus"></i>
-    <span>新增</span>
-  </button>
-</p>
-
-<h2>專案列表</h2>
+<div nz-row>
+  <div nz-col nzSpan="8">
+    <button nz-button nzType="default" routerLink="/{{ target }}/create">
+      <i class="anticon anticon-plus"></i>
+      <span>新增</span>
+    </button>
+  </div>
+  <div nz-col nzSpan="8">
+    <h2 class="txt-page-title">專案列表</h2>
+  </div>
+</div>
 
 <nz-table 
-  #pnlProject
+  #pnlTable
   [nzData]="dataSet" 
   [nzShowSizeChanger]="true"
   [nzPageSizeOptions]="[ 5, 10, 15 ]">
@@ -21,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of pnlProject.data">
+    <tr *ngFor="let data of pnlTable.data">
       <td>{{ data.project.title }}</td>
       <td>{{ data.project.type }}</td>
       <td>{{ data.project.is_public }}</td>

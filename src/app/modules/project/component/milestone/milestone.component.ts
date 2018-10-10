@@ -9,9 +9,9 @@ import { Milestone } from './../../../../models/milestone.model';
 })
 export class MilestoneComponent implements OnInit {
 
-  @Input() milestones: Array<Milestone>
   @Input() form: FormGroup;
   @Input() builder: FormBuilder;
+  @Input() milestones: Array<Milestone>
 
   constructor() 
   { 
@@ -25,8 +25,7 @@ export class MilestoneComponent implements OnInit {
 
   addColumn(): void 
   {
-    const column = new Milestone();
-    this.milestones.push(column);
+    this.milestones.push(new Milestone());
     (this.form.get('milestones') as FormArray).push(this.builder.group({
       datetime:     [ null, [ Validators.required ] ],
       description:  [ null, [ Validators.required ] ]

@@ -1,14 +1,17 @@
-<p>
-  <button nz-button nzType="default" routerLink="/{{ target }}/create">
-    <i class="anticon anticon-plus"></i>
-    <span>新增</span>
-  </button>
-</p>
-
-<h2>經歷列表</h2>
+<div nz-row>
+  <div nz-col nzSpan="8">
+    <button nz-button nzType="default" routerLink="/{{ target }}/create">
+      <i class="anticon anticon-plus"></i>
+      <span>新增</span>
+    </button>
+  </div>
+  <div nz-col nzSpan="8">
+    <h2 class="txt-page-title">經歷列表</h2>
+  </div>
+</div>
 
 <nz-table 
-  #pnlExperience
+  #pnlTable
   [nzData]="dataSet" 
   [nzLoading]="isLoading"
   [nzShowSizeChanger]="true"
@@ -24,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of pnlExperience.data">
+    <tr *ngFor="let data of pnlTable.data">
       <td><a href="{{ data.experience.url }}" target="_blank">{{ data.experience.company }}</a></td>
       <td>{{ data.experience.department }}</td>
       <td>{{ data.experience.title }}</td>

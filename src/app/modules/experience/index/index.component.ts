@@ -16,7 +16,7 @@ export class IndexComponent implements OnInit
   private experiences: AngularFireList<Experience>;
   private dataSet = [];
 
-  private language = 'zh_TW';
+  private language = 'zh-TW';
   private target = 'experience';
 
   constructor

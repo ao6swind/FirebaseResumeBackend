@@ -1,14 +1,17 @@
-<p>
-  <button nz-button nzType="default" routerLink="/{{ target }}/create">
-    <i class="anticon anticon-plus"></i>
-    <span>新增</span>
-  </button>
-</p>
-
-<h2>學歷列表</h2>
+<div nz-row>
+  <div nz-col nzSpan="8">
+    <button nz-button nzType="default" routerLink="/{{ target }}/create">
+      <i class="anticon anticon-plus"></i>
+      <span>新增</span>
+    </button>
+  </div>
+  <div nz-col nzSpan="8">
+    <h2 class="txt-page-title">學歷列表</h2>
+  </div>
+</div>
 
 <nz-table 
-  #pnlEducation
+  #pnlTable
   [nzData]="dataSet" 
   [nzLoading]="isLoading"
   [nzShowSizeChanger]="true"
@@ -24,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of pnlEducation.data">
+    <tr *ngFor="let data of pnlTable.data">
       <td>{{ data.education.level }}</td>
       <td>{{ data.education.school }}</td>
       <td>{{ data.education.major }}</td>

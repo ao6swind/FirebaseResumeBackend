@@ -9,17 +9,27 @@ import * as firebase from 'firebase/app';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth, private router: Router) {
+  constructor
+  (
+    public afAuth: AngularFireAuth, 
+    private router: Router
+  ) 
+  {
     this.afAuth.authState.subscribe((user: firebase.User) => {
-      if (user !== null) {
+      if (user !== null) 
+      {
         this.router.navigate(['']);
       }
     });
   }
-  ngOnInit() {
+
+  ngOnInit() 
+  {
 
   }
-  login() {
+
+  login() 
+  {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 }

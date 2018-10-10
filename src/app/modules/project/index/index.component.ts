@@ -1,3 +1,4 @@
+import { LanguageService } from './../../../services/language.service';
 import { Component, OnInit } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
@@ -16,16 +17,17 @@ export class IndexComponent implements OnInit
   private projects: AngularFireList<Project>;
   private dataSet = [];
 
-  private language = 'zh_TW';
+  private language = 'zh-TW';
   private target = 'project';
 
   constructor
   (
     private firebase: AngularFireDatabase,
-    private message: NzMessageService
+    private message: NzMessageService,
+    private langService: LanguageService
   ) 
   { 
-
+    this.language = this.langService.getLanguage();
   }
 
   ngOnInit() 

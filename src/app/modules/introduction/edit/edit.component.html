@@ -1,0 +1,88 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div *ngIf="!isLoading">
+  <h2 class="txt-page-title">個人資料</h2>
+  <form (ngSubmit)="submit()">
+    <nz-tabset [nzTabBarExtraContent]="extraTemplate">
+      <nz-tab nzTitle="基本資料">
+        <nz-form-item>
+          <nz-form-control [nzSm]="6" [nzXs]="24">
+            <img src="{{ (uploaded.photo.content != null) ? uploaded.photo.content : 'assets/img/user.png' }}">
+            <p>
+              <a class="txt-link" *ngFor="let link of introduction.links" href="{{ link.url }}" target="_blank">
+                <span [innerHTML]="link.icon"></span>
+              </a>
+            </p>
+          </nz-form-control>
+          <nz-form-control [nzSm]="18" [nzXs]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="photo">大頭照</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="24">
+                <input nz-input id="photo" type="file" accept="image/*" (change)="readFile($event, 'photo')">
+              </nz-form-control>
+            </nz-form-item>
+  
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="resume">履歷</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="24">
+                <nz-input-group [nzAddOnAfter]="addOnAfterTemplate">
+                  <input nz-input id="resume" type="file" accept=".pdf" (change)="readFile($event, 'resume')">
+                </nz-input-group>
+                <ng-template #addOnAfterTemplate>
+                  <span [ngSwitch]="introduction.resume == null">
+                    <span *ngSwitchCase="true">
+                      <font color="red">
+                        <span>未上傳</span>
+                      </font>
+                    </span>
+                    <span *ngSwitchCase="false">
+                      <a href="{{ introduction.resume }}" target="_blank">
+                        <span>預覽</span>
+                      </a>
+                    </span>
+                  </span>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-tab>
+  
+      <nz-tab nzTitle="連結">
+        <button nz-button nzType="dashed" (click)="addColumn()" type="button">
+          <i class="anticon anticon-plus"></i>
+          <span>增加</span>
+        </button>
+  
+        <nz-form-item *ngFor="let link of introduction.links; let i = index;">
+          <nz-form-control [nzXs]="24" [nzSm]="24">
+            <nz-input-group nzCompact>
+              <input nz-input style="width:30%;" name="link[{{i}}].name" [(ngModel)]="link.name" placeholder="請輸入名稱">
+              <input nz-input style="width:30%;" name="link[{{i}}].url"  [(ngModel)]="link.url" placeholder="請輸入網址">
+              <input nz-input style="width:30%;" name="link[{{i}}].icon" [(ngModel)]="link.icon" placeholder="請輸入圖示">
+              <button nz-button style="width:10%;" nzType="danger" (click)="removeColumn(i)">
+                <i class="anticon anticon-delete"></i>
+              </button>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>   
+      </nz-tab>
+  
+      <nz-tab nzTitle="自傳">
+        <ck-editor 
+          [(ngModel)]="introduction.profile" 
+          [fullPage]="true"
+          language="zh-TW" 
+          name="ckeditor" 
+          skin="moono-lisa"> 
+        </ck-editor>
+      </nz-tab>
+    </nz-tabset>
+
+    <ng-template #extraTemplate>
+      <button nz-button nzType="primary">
+        <i class="anticon anticon-save"></i>
+        <span>儲存</span>
+      </button>
+    </ng-template>
+  </form>
+</div>

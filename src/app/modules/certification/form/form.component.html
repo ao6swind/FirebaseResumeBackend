@@ -1,3 +1,67 @@
-<p>
-  form works!
-</p>
+<app-loading *ngIf="isLoading"></app-loading>
+
+<div *ngIf="!isLoading">
+  <div nz-row>
+    <div nz-col nzSpan="8">
+      <button nz-button nzType="default" routerLink="/{{ target }}">
+        <i class="anticon anticon-arrow-left"></i>
+        <span>回列表</span>
+      </button>
+    </div>
+    <div nz-col nzSpan="8">
+      <h2 class="txt-page-title" [ngSwitch]="isCreateMode">
+        <span *ngSwitchCase="true">新增證照</span>
+        <span *ngSwitchCase="false">修改證照</span>
+      </h2>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <nz-form-item>
+      <nz-form-control [nzSm]="6" [nzXs]="24">
+        <img src="{{ (uploaded.content != null) ? uploaded.content : 'assets/img/preview.png'}}">
+      </nz-form-control>
+      <nz-form-control [nzSm]="18" [nzXs]="24">
+        <nz-form-item>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="name">名稱</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24">
+            <input nz-input id="name" formControlName="name" [(ngModel)]="certification.name" placeholder="請輸入名稱">
+            <nz-form-explain *ngIf="form.get('name').dirty && form.get('name').errors">請輸入名稱</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+      
+        <nz-form-item>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="from">發照單位</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24">
+            <input nz-input id="from" formControlName="from" [(ngModel)]="certification.from" placeholder="請輸入發照單位">
+            <nz-form-explain *ngIf="form.get('from').dirty && form.get('from').errors">請輸入發照單位</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+      
+        <nz-form-item>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="url">證照圖檔</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24">
+            <input nz-input id="url" formControlName="url" type="file" accept="image/*" (change)="readURL($event)">
+            <nz-form-explain *ngIf="form.get('url').dirty && form.get('url').errors">請選擇檔案</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+        
+        <nz-form-item>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="expired">過期時間</nz-form-label>
+          <nz-form-control [nzSm]="18" [nzXs]="24">
+            <nz-month-picker id="expired" formControlName="expired" [(ngModel)]="certification.expired"></nz-month-picker>
+          </nz-form-control>
+        </nz-form-item>
+        
+        <nz-form-item>
+          <nz-form-control [nzSm]="{ span: 20, offset: 4 }" [nzXs]="{ span: 24, offset: 0 }">
+            <button nz-button nzType="primary">
+              <i class="anticon anticon-save"></i>
+              <span>儲存</span>
+            </button>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

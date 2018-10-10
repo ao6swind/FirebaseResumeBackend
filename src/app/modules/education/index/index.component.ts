@@ -16,7 +16,7 @@ export class IndexComponent implements OnInit
   private educations: AngularFireList<Education>;
   private dataSet = [];
 
-  private language = 'zh_TW';
+  private language = 'zh-TW';
   private target = 'education';
 
   constructor
@@ -25,7 +25,7 @@ export class IndexComponent implements OnInit
     private message: NzMessageService
   ) 
   { 
-  
+    
   }
   
   ngOnInit() 

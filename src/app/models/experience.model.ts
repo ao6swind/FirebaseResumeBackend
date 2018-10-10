@@ -5,6 +5,6 @@ export class Experience
     public title: string;
     public url: string;
     public description: string = '';
-    public start: string = '';
-    public end: string = '';
+    public start: string;
+    public end: string;
 }

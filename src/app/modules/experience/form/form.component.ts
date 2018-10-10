@@ -17,13 +17,13 @@ import { message } from './../../../variables/message';
 export class FormComponent implements OnInit 
 {
   // 屬性
-  private is_create_mode: boolean = true;
-  private formGroup: FormGroup;
+  private isCreateMode: boolean = true;
+  private form: FormGroup;
   private experience: Experience = new Experience();
   private $key: string = '';
   private observer: Observable<Experience>;
 
-  private language = 'zh_TW';
+  private language = 'zh-TW';
   private target = 'experience';
 
   // 建構子
@@ -38,7 +38,7 @@ export class FormComponent implements OnInit
   { 
     if(this.route.routeConfig.path != "create")
     {
-      this.is_create_mode = false;
+      this.isCreateMode = false;
       this.route.params.subscribe(params => 
       {
         this.$key = params.id;
@@ -56,7 +56,7 @@ export class FormComponent implements OnInit
   // Angular 物件生命週期: OnInit
   ngOnInit() 
   {
-    this.formGroup = this.builder.group({
+    this.form = this.builder.group({
       company:      [ null, [ Validators.required ] ],
       department:   [ null, [ Validators.required ] ],
       title:        [ null, [ Validators.required ] ],
@@ -68,24 +68,24 @@ export class FormComponent implements OnInit
 
     if(this.route.routeConfig.path != "create")
     {
-      this.is_create_mode = false;
+      this.isCreateMode = false;
     }
   }
 
   submit(): void 
   {
-    for (const i in this.formGroup.controls) 
+    for (const i in this.form.controls) 
     {
-      this.formGroup.controls[ i ].markAsDirty();
-      this.formGroup.controls[ i ].updateValueAndValidity();
+      this.form.controls[ i ].markAsDirty();
+      this.form.controls[ i ].updateValueAndValidity();
     }
 
-    if(this.formGroup.valid)
+    if(this.form.valid)
     {
-      this.experience.start = (this.experience.start != '') ? formatDate(this.experience.start, 'yyyy-MM', this.language) : '';
-      this.experience.end = (this.experience.end != '') ? formatDate(this.experience.end, 'yyyy-MM', this.language) : '';
+      this.experience.start = (this.experience.start != null) ? formatDate(this.experience.start, 'yyyy-MM', this.language) : null;
+      this.experience.end = (this.experience.end != null) ? formatDate(this.experience.end, 'yyyy-MM', this.language) : null;
 
-      if(this.is_create_mode)
+      if(this.isCreateMode)
       {
         this.fb.list(`${this.language}/${this.target}`).push(this.experience).then(res => {
           this.message.success(message[this.language].success.create);

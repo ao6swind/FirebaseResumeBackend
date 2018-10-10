@@ -13,7 +13,7 @@
             <i class="anticon anticon-close" 
               nz-popconfirm 
               nzTitle="您確定要刪除這筆資料嗎？" 
-              [nzCondition]="hideConfirm" 
+              [nzCondition]="(screens[i].url == '') ? true : false" 
               (nzOnConfirm)="removeColumn(i)"></i>
           </div>
         </ng-template>
@@ -29,7 +29,7 @@
         <nz-form-item>
           <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="screen.url#{{i}}">檔案</nz-form-label>
           <nz-form-control [nzSm]="16" [nzXs]="24">
-            <input nz-input id="screen.url#{{i}}" formControlName="url" placeholder="請選擇檔案" type="file" (change)="readURL($event, i)">
+            <input nz-input id="screen.url#{{i}}" formControlName="url" type="file" accept="image/*" (change)="readURL($event, i)">
             <nz-form-explain *ngIf="row.get('url').dirty && row.get('url').errors">請選擇檔案</nz-form-explain>
           </nz-form-control>
         </nz-form-item>

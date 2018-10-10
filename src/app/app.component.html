@@ -10,10 +10,10 @@
         <li nz-submenu>
           <span title>
             <i class="anticon anticon-user"></i>
-            <span>介紹</span>
+            <span>履歷</span>
           </span>
           <ul>
-            <li nz-menu-item routerLink="profile">自傳</li>
+            <li nz-menu-item routerLink="introduction">個人資料</li>
             <li nz-menu-item routerLink="certification">證照</li>
             <li nz-menu-item routerLink="education">學歷</li>
             <li nz-menu-item routerLink="experience">經歷</li>
@@ -24,12 +24,6 @@
           <span title>
             <i class="anticon anticon-code"></i>
             <span>專案</span>
-          </span>
-        </li>
-        <li nz-menu-item nz-tooltip nzPlacement="right" routerLink="file">
-          <span title>
-            <i class="anticon anticon-file"></i>
-            <span>檔案</span>
           </span>
         </li>
         <li nz-menu-item (click)="logout()">
@@ -44,15 +38,15 @@
   <nz-layout>
     <nz-header>
       <div nz-row *ngIf="afAuth.authState | async">
-        <div nz-col nzSpan="8">
+        <div nz-col [nzXs]="12" [nzSm]="16">
           <i class="anticon trigger" 
             [class.anticon-menu-fold]="!isCollapsed" 
             [class.anticon-menu-unfold]="isCollapsed" 
             (click)="isCollapsed=!isCollapsed"></i>
         </div>
-        <div nz-col nzSpan="8" nzOffset="8">
+        <div nz-col [nzXs]="12" [nzSm]="8">
           <div *ngIf="afAuth.authState">
-            <nz-select [(ngModel)]="language" (change)="redirect()">
+            <nz-select [(ngModel)]="language" (ngModelChange)="redirect()">
               <nz-option nzValue="en-US" nzLabel="English"></nz-option>
               <nz-option nzValue="zh-TW" nzLabel="中文"></nz-option>
             </nz-select>

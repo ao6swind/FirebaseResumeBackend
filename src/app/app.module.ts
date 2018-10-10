@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 // 所有需要匯入的module統一整理在此
 import { GeneralModule } from './shared/general/general.module';
 
-
 @NgModule({
   declarations: [
     AppComponent
