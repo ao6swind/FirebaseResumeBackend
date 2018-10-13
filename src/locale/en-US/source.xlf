@@ -2,15 +2,17 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="4837cb51909f33cb117e705a1599065db5c88d93" datatype="html">
+      <trans-unit id="txtLoading" datatype="html">
         <source>載入中</source>
+        <target>Loading</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/shared/component/loading/loading.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5c59536fe34929df9d7edc8dbcdf02cd0137112e" datatype="html">
+      <trans-unit id="txtResume" datatype="html">
         <source>履歷</source>
+        <target>Resume</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
           <context context-type="linenumber">13</context>
@@ -20,8 +22,9 @@
           <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="04c603ffe0ba829cc7c4cf740de00fbea4fe7226" datatype="html">
+      <trans-unit id="txtIntroducation" datatype="html">
         <source>個人資料</source>
+        <target>Profile</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
           <context context-type="linenumber">16</context>
@@ -31,15 +34,17 @@
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="948cdb421531e8c711c2d81a840cc5e0b8c0fcc0" datatype="html">
+      <trans-unit id="txtCertification" datatype="html">
         <source>證照</source>
+        <target>Certification</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="e5b8d1f11cd4019dfe4895e4c017b2bc7fb7afb1" datatype="html">
+      <trans-unit id="txtEducation" datatype="html">
         <source>學歷</source>
+        <target>Education</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
           <context context-type="linenumber">18</context>
@@ -53,36 +58,41 @@
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4b6ee934be31c54551abf51f2cc45faed1c4e44b" datatype="html">
+      <trans-unit id="txtExperience" datatype="html">
         <source>經歷</source>
+        <target>Experience</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="c708dccf44855f58314e77740d75c83a32c44050" datatype="html">
+      <trans-unit id="txtSkill" datatype="html">
         <source>技能</source>
+        <target>Skill</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8e47b30ccbf409d36214284f61f60835bfa8fef1" datatype="html">
+      <trans-unit id="txtProject" datatype="html">
         <source>專案</source>
+        <target>Project</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="18c3a3bcdbcfaae0c4908c7d2e597280c0ec0044" datatype="html">
+      <trans-unit id="txtLogout" datatype="html">
         <source>登出</source>
+        <target>Logout</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="dafe17dbdd2bac3b5032c3cca556cdc8fa09d0c6" datatype="html">
+      <trans-unit id="txtCreate" datatype="html">
         <source>新增</source>
+        <target>Create</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/index/index.component.html</context>
           <context context-type="linenumber">5</context>
@@ -104,15 +114,17 @@
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5d56c2245c60fa27b041af089c36b527a02284e1" datatype="html">
+      <trans-unit id="txtCertificationList" datatype="html">
         <source>證照列表</source>
+        <target>Certification list</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/index/index.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="923ae4af5b8a881a998dd7b0236c11a64fd42cec" datatype="html">
+      <trans-unit id="txtTitle" datatype="html">
         <source>名稱</source>
+        <target>Title</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/index/index.component.html</context>
           <context context-type="linenumber">20</context>
@@ -120,6 +132,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/form/form.component.html</context>
           <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/index/index.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
+          <context context-type="linenumber">42</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/index/index.component.html</context>
@@ -130,6 +150,14 @@
           <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">app/modules/skill/index/index.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
@@ -138,8 +166,9 @@
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1235c91ada3f9b78d84af5141153ab5aa84a3766" datatype="html">
+      <trans-unit id="txtFrom" datatype="html">
         <source>發證單位</source>
+        <target>Issued By</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/index/index.component.html</context>
           <context context-type="linenumber">21</context>
@@ -149,8 +178,9 @@
           <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5e142fd81f63d5ad8570a4afda6fa6c5cf03611f" datatype="html">
+      <trans-unit id="txtExpired" datatype="html">
         <source>有效期限</source>
+        <target>Expiration Date</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/index/index.component.html</context>
           <context context-type="linenumber">22</context>
@@ -160,8 +190,9 @@
           <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="b83c93a428ee12c798abc634c338e5e073a057fa" datatype="html">
+      <trans-unit id="txtEdit" datatype="html">
         <source>修改</source>
+        <target>Edit</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/index/index.component.html</context>
           <context context-type="linenumber">34</context>
@@ -183,8 +214,9 @@
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8162c5bca23ef9d3ab518aa0cabfc3e74f94af34" datatype="html">
+      <trans-unit id="txtDelete" datatype="html">
         <source>刪除</source>
+        <target>Delete</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/index/index.component.html</context>
           <context context-type="linenumber">40</context>
@@ -206,8 +238,9 @@
           <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="80e0e4ed350193250334579d25ce575688f8625a" datatype="html">
+      <trans-unit id="txtDeleteConfirm" datatype="html">
         <source>確定要刪除嗎？</source>
+        <target>This row will be delete. Are you sure?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/index/index.component.html</context>
           <context context-type="linenumber">38</context>
@@ -229,8 +262,9 @@
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="ab3ef3e9947fb663ecd9e02fe9cf3488f76cb347" datatype="html">
+      <trans-unit id="txtBackToList" datatype="html">
         <source>回列表</source>
+        <target>Back to list</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/form/form.component.html</context>
           <context context-type="linenumber">8</context>
@@ -252,22 +286,25 @@
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3250ded26d3b143df6ef9b79b6e25beef9aea462" datatype="html">
+      <trans-unit id="txtAddCertification" datatype="html">
         <source>新增證照</source>
+        <target>Add certification</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/form/form.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="e7e67d348c8fb0c9104284e32b47f1688d2cf841" datatype="html">
+      <trans-unit id="txtUpdateCertification" datatype="html">
         <source>修改證照</source>
+        <target>Update certification</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/form/form.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="f1ac48cc89affc5e4b079e7f2e5b55ee43506c12" datatype="html">
+      <trans-unit id="txtPlaceholderTitle" datatype="html">
         <source>請輸入名稱</source>
+        <target>Please enter title</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/form/form.component.html</context>
           <context context-type="linenumber">28</context>
@@ -275,6 +312,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/form/form.component.html</context>
           <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
+          <context context-type="linenumber">45</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
@@ -289,6 +334,14 @@
           <context context-type="linenumber">28</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">app/modules/skill/form/form.component.html</context>
           <context context-type="linenumber">28</context>
         </context-group>
@@ -297,8 +350,9 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="14ea6e8f5f23dc74cbbb19649eced04798e1356e" datatype="html">
+      <trans-unit id="txtPlaceholderFrom" datatype="html">
         <source>請輸入發證單位</source>
+        <target>Please enter issued by</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/form/form.component.html</context>
           <context context-type="linenumber">36</context>
@@ -308,26 +362,25 @@
           <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="fc3bc7ba7cfee008f0ed462cbe9bc1255bf0b482" datatype="html">
+      <trans-unit id="txtImage" datatype="html">
         <source>證照圖檔</source>
+        <target>Image</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/form/form.component.html</context>
           <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="d21bf87bb1b45c18cfe40fcef2ae760034a18501" datatype="html">
-        <source>請選擇檔案</source>
+      <trans-unit id="txtPlaceholderImage" datatype="html">
+        <source>請選擇證照圖檔</source>
+        <target>Please choose an image</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/form/form.component.html</context>
           <context context-type="linenumber">45</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
       </trans-unit>
-      <trans-unit id="564a0677b9688b86fa4e61fae9f6bf710f1e050c" datatype="html">
+      <trans-unit id="txtSave" datatype="html">
         <source>儲存</source>
+        <target>Save</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/certification/form/form.component.html</context>
           <context context-type="linenumber">60</context>
@@ -346,22 +399,24 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">144</context>
+          <context context-type="linenumber">160</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/skill/form/form.component.html</context>
           <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="fe20d0e7f31ae75aeac85cee294a7caf1bdd7cc1" datatype="html">
+      <trans-unit id="txtEducationList" datatype="html">
         <source>學歷列表</source>
+        <target>Education list</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/education/index/index.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8c75e4a574ae74129f29d837361a5e869c232453" datatype="html">
+      <trans-unit id="txtSchool" datatype="html">
         <source>學校</source>
+        <target>School</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/education/index/index.component.html</context>
           <context context-type="linenumber">22</context>
@@ -371,8 +426,9 @@
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="0ed8b31195ea5fcc1c0a8276eac21ce3551d6156" datatype="html">
+      <trans-unit id="txtMajor" datatype="html">
         <source>主修</source>
+        <target>Major</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/education/index/index.component.html</context>
           <context context-type="linenumber">23</context>
@@ -382,8 +438,9 @@
           <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2e5ef795652fed7bd2155a815fec66487cdb5acc" datatype="html">
+      <trans-unit id="txtStart" datatype="html">
         <source>始業</source>
+        <target>Start</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/education/index/index.component.html</context>
           <context context-type="linenumber">24</context>
@@ -392,132 +449,6 @@
           <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
           <context context-type="linenumber">50</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="4b102ba2a33651ec21639f832bae28812ad72950" datatype="html">
-        <source>畢業</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/index/index.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="9fb59b0d03ea0338910cce267b7b402db6e56d01" datatype="html">
-        <source>新增學歷</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4b9c099893ca59e29d59da52f4e2fc3dd40b33a3" datatype="html">
-        <source>修改學歷</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="582b440a942b33642489d7d05accd6b557942d4a" datatype="html">
-        <source>請輸入學歷</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="200fa73e7b97fe8d050c145cbe54915d5b3018e9" datatype="html">
-        <source>請輸入學校</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">28</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7a2cfba9f2a49534a85ea4204e1de40d67ba1737" datatype="html">
-        <source>科系</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7b55de3a1f3d92553a35964c8ff60b9c98d65308" datatype="html">
-        <source>請輸入科系</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="64f0ef14c15ab722a7c4f682fd65aac5f0d3ec25" datatype="html">
-        <source>請輸入主修</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">44</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">45</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="d672ced6f22ac60743603d664f9a9b43585c33a6" datatype="html">
-        <source>請輸入始業</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
-          <context context-type="linenumber">53</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="661c9941811edc25562d7db7a0719ac24e9633ff" datatype="html">
-        <source>經歷列表</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/index/index.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5ecf5b089012a95173197647e958a7185406a222" datatype="html">
-        <source>單位</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/index/index.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6aaad7be16d43698b3aed6e5ea0623779fbbbe39" datatype="html">
-        <source>部門</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/index/index.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2fbfe4d914350d22d9e3305d337e7f2574fdac41" datatype="html">
-        <source>職稱</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/index/index.component.html</context>
-          <context context-type="linenumber">23</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
-          <context context-type="linenumber">42</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="e89a621e10f3a97e6115156e9815efbb2ac82a71" datatype="html">
-        <source>開始</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/experience/index/index.component.html</context>
           <context context-type="linenumber">24</context>
@@ -527,8 +458,17 @@
           <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3073d9b3ece751dad3888fdfba1e3ecce86649bb" datatype="html">
-        <source>結束</source>
+      <trans-unit id="txtEnd" datatype="html">
+        <source>畢業</source>
+        <target>End</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/index/index.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/experience/index/index.component.html</context>
           <context context-type="linenumber">25</context>
@@ -538,22 +478,145 @@
           <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="96dc8e5e206a238e7646bd6996688a64b827543d" datatype="html">
+      <trans-unit id="txtAddEducation" datatype="html">
+        <source>新增學歷</source>
+        <target>Add education</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtUpdateEducation" datatype="html">
+        <source>修改學歷</source>
+        <target>Update education</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtPlaceholderEducation" datatype="html">
+        <source>請輸入學歷</source>
+        <target>Please enter education</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtPlaceholderSchool" datatype="html">
+        <source>請輸入學校</source>
+        <target>Please enter school</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtDepartment" datatype="html">
+        <source>科系</source>
+        <target>Department</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/index/index.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtPlaceholderDepartment" datatype="html">
+        <source>請輸入科系</source>
+        <target>Please enter department</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtPlaceholderMajor" datatype="html">
+        <source>請輸入主修</source>
+        <target>Please enter major</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtPlaceholderStart" datatype="html">
+        <source>請輸入始業</source>
+        <target>Please enter start date</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/education/form/form.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtExperienceList" datatype="html">
+        <source>經歷列表</source>
+        <target>Experience list</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/index/index.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtOrganization" datatype="html">
+        <source>單位</source>
+        <target>Organization</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/index/index.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtAddExperience" datatype="html">
         <source>新增經歷</source>
+        <target>Add experience</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4027348bd3d6af6e79555446477d9b7710838d32" datatype="html">
+      <trans-unit id="txtUpdateExperience" datatype="html">
         <source>修改經歷</source>
+        <target>Update experience</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="10e50dd92f119a35ecb686be71918dcf107888c1" datatype="html">
+      <trans-unit id="txtPlaceholderOrganization" datatype="html">
         <source>請輸入單位</source>
+        <target>Please enter organization</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
           <context context-type="linenumber">20</context>
@@ -563,8 +626,9 @@
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="b7e4204b6f9f6a9b77622682ec6e6c36b5d60136" datatype="html">
+      <trans-unit id="txtUrl" datatype="html">
         <source>網址</source>
+        <target>URL</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
           <context context-type="linenumber">26</context>
@@ -573,9 +637,14 @@
           <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
           <context context-type="linenumber">44</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
       </trans-unit>
-      <trans-unit id="5294632511b2aa6ec29cb1aca60709e81e75428b" datatype="html">
+      <trans-unit id="txtPlaceholderUrl" datatype="html">
         <source>請輸入單位網址</source>
+        <target>Please enter URL</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
           <context context-type="linenumber">28</context>
@@ -584,31 +653,18 @@
           <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
           <context context-type="linenumber">29</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="3739f579e628063390fb7c5ff3f371a12023c969" datatype="html">
-        <source>請輸入部門</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5adaaaf29ed8597b847070a732e57503cc8aed1c" datatype="html">
-        <source>請輸入職稱</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
-          <context context-type="linenumber">44</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
-          <context context-type="linenumber">45</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="fc1b3d556b512e041790eea75637912b3b29dab1" datatype="html">
+      <trans-unit id="txtDescription" datatype="html">
         <source>簡介</source>
+        <target>Description</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
           <context context-type="linenumber">50</context>
@@ -617,9 +673,22 @@
           <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
           <context context-type="linenumber">73</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">147</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
       </trans-unit>
-      <trans-unit id="9dc736c5878dc2ae05b02c4cfcf2f57a199c3fb2" datatype="html">
+      <trans-unit id="txtPlaceholderDescription" datatype="html">
         <source>請輸入簡介</source>
+        <target>Please enter description</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
           <context context-type="linenumber">52</context>
@@ -628,271 +697,6 @@
           <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
           <context context-type="linenumber">75</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="1ba71eccc7649c45b5f18e62b892b559258baaa4" datatype="html">
-        <source>請輸入開始</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/experience/form/form.component.html</context>
-          <context context-type="linenumber">60</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="a797d112a1095ed177bbe8167242abe6327a71ea" datatype="html">
-        <source>大頭照</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="0a0c80c1173c355deb1d371e933f0a73528d0588" datatype="html">
-        <source>未上傳</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="97fee26333fc9ca9b208fdf0914c06c0e1c568b2" datatype="html">
-        <source>預覽</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="987b8f502c005b5eb24842fe00cd098f980875a0" datatype="html">
-        <source>基本資料</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2ba948d65e27b13943d0780a30c0ccaec6f6fbb0" datatype="html">
-        <source>增加</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
-          <context context-type="linenumber">53</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/component/keyword/keyword.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/component/milestone/milestone.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="fface0a31cc8bcbd17ddb191069106a1c8caf638" datatype="html">
-        <source>請輸入網址</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
-          <context context-type="linenumber">60</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">46</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">47</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="69edf36f3a47d569b46c846c37634fba7652f44d" datatype="html">
-        <source>請輸入圖示</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
-          <context context-type="linenumber">61</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2c03c299288c806cafdb9bc706f56fb03a61b1c1" datatype="html">
-        <source>連結</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
-          <context context-type="linenumber">50</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="cedaed3e64887238597f2663ec0260f26bc0f193" datatype="html">
-        <source>自傳</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
-          <context context-type="linenumber">70</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5ab0b3429c283706131aea420c8dd35838399bf4" datatype="html">
-        <source>登入</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/manage/login/login.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="b492caed78790df13a101749ec3d6faaeddcdfe3" datatype="html">
-        <source>專案列表</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/index/index.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="bcdc1940a59c84285e8c2ec861e7f4107b820aa3" datatype="html">
-        <source>類型</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/index/index.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2e2757806f3f1ef1b939624ee2dd0a152c33883f" datatype="html">
-        <source>公開網址</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/index/index.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">52</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="d3822c7c7f15339fd09738704740f27d2d809cc5" datatype="html">
-        <source>新增專案</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">13</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="e0afabf931f1afe2b78c78605e87354e797e9314" datatype="html">
-        <source>修改專案</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4ac3205ba1abf415fade5a82c5a31fba382b0f9d" datatype="html">
-        <source>桌面應用程式</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">36</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8fe27e1375e72a3907f576cc9cc9d906daedd5ba" datatype="html">
-        <source>網頁應用程式</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="687f4c2feda3d1e38a6b3553538749dca5cfc270" datatype="html">
-        <source>請選擇類型</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">35</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="009e0f17a5f292e62b4fd94c13d3495ec1ff1f70" datatype="html">
-        <source>是</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">55</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">55</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6e38cc289a73af5652e8753dd4c19748dad3fa7a" datatype="html">
-        <source>否</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6fcfc311ad1961c490f2fc7f695f2233b843a23a" datatype="html">
-        <source>請選擇是否公開專案網址</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">58</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="f9567f8b01083cf34709895b84057034024751d3" datatype="html">
-        <source>請新增至少一組關鍵字</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">64</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6e791ec9af3f453753b2e8345074db787fa4bcc8" datatype="html">
-        <source>請新增至少一個里程碑</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">65</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8e4819f165507f952d5bbadbb343e114b5c3c517" datatype="html">
-        <source>請新增至少一張畫面</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">66</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="ded74af7b191fba276c5a1d39f107528c4bc5856" datatype="html">
-        <source>基本資訊</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7eba95869381cc42be83bf25d8aca083b2f3a796" datatype="html">
-        <source>關鍵字</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">82</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="c25162841a49cadfbae2c8cbea657ccf007ef54e" datatype="html">
-        <source>里程碑</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">107</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="9b0677a3e17e22f4f762d8e256ffefba24960ae9" datatype="html">
-        <source>畫面截圖</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">123</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="447a6f4ae0686f135771ca737907e0dac034effb" datatype="html">
-        <source>請輸入關鍵字</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/component/keyword/keyword.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/component/keyword/keyword.component.html</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3aad62431e92ba25d17a7619875731fb253c80e2" datatype="html">
-        <source>請輸入敘述</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/component/milestone/milestone.component.html</context>
           <context context-type="linenumber">12</context>
@@ -906,68 +710,333 @@
           <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="618bbea5650de1c83a80ae485d579c4173e9d57a" datatype="html">
-        <source>請選擇日期</source>
+      <trans-unit id="txtPhoto" datatype="html">
+        <source>大頭照</source>
+        <target>Photo</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/component/milestone/milestone.component.html</context>
+          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3f6edd821a909b06ca521dd278aa26d1dd9c9e2d" datatype="html">
-        <source>畫面</source>
+      <trans-unit id="txtUploadedNotYet" datatype="html">
+        <source>未上傳</source>
+        <target>Uploaded not yet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtPreview" datatype="html">
+        <source>預覽</source>
+        <target>Preview</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtInformation" datatype="html">
+        <source>基本資料</source>
+        <target>Introduction</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtAdd" datatype="html">
+        <source>增加</source>
+        <target>Add</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/component/keyword/keyword.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/component/milestone/milestone.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtPlaceholderIcon" datatype="html">
+        <source>請輸入圖示</source>
+        <target>Please enter icon</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtLink" datatype="html">
+        <source>連結</source>
+        <target>Link</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtProfile" datatype="html">
+        <source>自傳</source>
+        <target>Profile</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtLogin" datatype="html">
+        <source>登入</source>
+        <target>Login</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/manage/login/login.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtProjectList" datatype="html">
+        <source>專案列表</source>
+        <target>Project list</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/index/index.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtType" datatype="html">
+        <source>類型</source>
+        <target>Type</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/index/index.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtIsPublic" datatype="html">
+        <source>公開網址</source>
+        <target>Is Public</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/index/index.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtAddProject" datatype="html">
+        <source>新增專案</source>
+        <target>Add project</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtUpdateProject" datatype="html">
+        <source>修改專案</source>
+        <target>Update project</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtDesktopApplication" datatype="html">
+        <source>桌面應用程式</source>
+        <target>Desktop application</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtWebApplication" datatype="html">
+        <source>網頁應用程式</source>
+        <target>Web application</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtPlaceholderType" datatype="html">
+        <source>請選擇類型</source>
+        <target>Please choose type</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtYes" datatype="html">
+        <source>是</source>
+        <target>Yes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtNo" datatype="html">
+        <source>否</source>
+        <target>No</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtPlaceholderIsPublic" datatype="html">
+        <source>請選擇是否公開專案網址</source>
+        <target>Please choose is public</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtAddKeywordAtLeast" datatype="html">
+        <source>請新增至少一組關鍵字</source>
+        <target>Please add one keyword at least</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtAddMilestoneAtLeast" datatype="html">
+        <source>請新增至少一個里程碑</source>
+        <target>Please add one milestone at least</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtAddScreenAtLeast" datatype="html">
+        <source>請新增至少一張畫面</source>
+        <target>Please add one screen at least</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtProjectTitle" datatype="html">
+        <source>專案名稱</source>
+        <target>Project Title</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtKeyword" datatype="html">
+        <source>關鍵字</source>
+        <target>Keyword</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtTime" datatype="html">
+        <source>時間</source>
+        <target>Time</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtMilestone" datatype="html">
+        <source>里程碑</source>
+        <target>Milestone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtScreen" datatype="html">
+        <source>畫面截圖</source>
+        <target>Screen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">133</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="40ebf547aac1797f41a47f79aa245fa9f89254cd" datatype="html">
+      <trans-unit id="txtPlaceholderKeyword" datatype="html">
+        <source>請輸入關鍵字</source>
+        <target>Please enter keyword</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/component/keyword/keyword.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/component/keyword/keyword.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtPlaceholderChooseDate" datatype="html">
+        <source>請選擇日期</source>
+        <target>Please choose date</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/component/milestone/milestone.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="txtDeleteScreenConfirm" datatype="html">
         <source>您確定要刪除這筆資料嗎？</source>
+        <target>This row will be delete. Are you sure?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="125b6d804552cf7f0c50a77ab4d9ce395e482416" datatype="html">
-        <source>標題</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
-          <context context-type="linenumber">23</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="88ae8eb8b6da8f6cf5f518ddb7403c904ec65d09" datatype="html">
-        <source>請輸入標題</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="446bb838c1df7347794f71c3e853f85a6333b330" datatype="html">
+      <trans-unit id="txtFile" datatype="html">
         <source>檔案</source>
+        <target>File</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
           <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="ee55e3af140a45e9b865e41276fe59db5a0f14dc" datatype="html">
-        <source>敘述</source>
+      <trans-unit id="txtPleaseChooseFile" datatype="html">
+        <source>請選擇檔案</source>
+        <target>Please choose a flie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5994a9c5c05be7cc89baa90e21b82abab88bd945" datatype="html">
+      <trans-unit id="txtSkillList" datatype="html">
         <source>技能列表</source>
+        <target>Skill list</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/skill/index/index.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="f989977ef19744ee4fbd4b2b21b055e559e52211" datatype="html">
+      <trans-unit id="txtCatelog" datatype="html">
         <source>類別</source>
+        <target>Catelog</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/skill/index/index.component.html</context>
           <context context-type="linenumber">21</context>
@@ -977,8 +1046,9 @@
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="f055523227ab5228fc63330097fae5a57686c6b6" datatype="html">
+      <trans-unit id="txtLevel" datatype="html">
         <source>程度</source>
+        <target>Level</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/skill/index/index.component.html</context>
           <context context-type="linenumber">23</context>
@@ -988,22 +1058,25 @@
           <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8cd6adb195720d5d18f9235adb1efce4ed303cb2" datatype="html">
+      <trans-unit id="txtAddSkill" datatype="html">
         <source>新增技能</source>
+        <target>Add skill</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/skill/form/form.component.html</context>
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7293c2de82376f0da3b1210c56b3a51067618426" datatype="html">
+      <trans-unit id="txtUpdateSkill" datatype="html">
         <source>修改技能</source>
+        <target>Update skill</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/skill/form/form.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="0dc84a376642064e0ad09426ac9e16236921e795" datatype="html">
+      <trans-unit id="txtPlaceholderCatelog" datatype="html">
         <source>請輸入類別</source>
+        <target>Please enter catelog</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/skill/form/form.component.html</context>
           <context context-type="linenumber">20</context>
@@ -1013,8 +1086,9 @@
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="c70fe0fec176b3d669ac2b51c3eb3491ab2927a3" datatype="html">
+      <trans-unit id="txtPlaceholderLevel" datatype="html">
         <source>請輸入程度</source>
+        <target>Please enter level</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/skill/form/form.component.html</context>
           <context context-type="linenumber">37</context>

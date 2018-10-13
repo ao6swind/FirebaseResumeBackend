@@ -1,6 +1,6 @@
 <button nz-button nzType="dashed" (click)="addColumn()" type="button">
   <i class="anticon anticon-plus"></i>
-  <span i18n>增加</span>
+  <span i18n="@@txtAdd">增加</span>
 </button>
 <div [formGroup]="form">
   <div formArrayName="milestones">
@@ -9,14 +9,14 @@
         <nz-form-control [nzXs]="24" [nzSm]="24">
           <nz-input-group nzCompact>
             <nz-date-picker [(ngModel)]="milestones[i].datetime" formControlName="datetime" [nzFormat]="yyyy-MM-dd"></nz-date-picker>
-            <input nz-input class="txt-description" [(ngModel)]="milestones[i].description" formControlName="description" placeholder="請輸入敘述" i18n-placeholder>
+            <input nz-input class="txt-description" [(ngModel)]="milestones[i].description" formControlName="description" placeholder="請輸入敘述" i18n-placeholder="@@txtPlaceholderDescription">
             <button nz-button nzType="danger" (click)="removeColumn(i)">
               <i class="anticon anticon-delete"></i>
             </button>
           </nz-input-group>
           <nz-form-explain *ngIf="(row.get('datetime').dirty && row.get('datetime').errors) || (row.get('description').dirty && row.get('description').errors)">
-            <span i18n *ngIf="row.get('datetime').dirty && row.get('datetime').errors">請選擇日期</span>
-            <span i18n *ngIf="row.get('description').dirty && row.get('description').errors">請輸入敘述</span>
+            <span *ngIf="row.get('datetime').dirty && row.get('datetime').errors" i18n="@@txtPlaceholderChooseDate">請選擇日期</span>
+            <span *ngIf="row.get('description').dirty && row.get('description').errors" i18n="@@txtPlaceholderDescription">請輸入敘述</span>
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>

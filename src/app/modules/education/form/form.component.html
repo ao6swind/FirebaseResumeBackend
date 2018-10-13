@@ -2,58 +2,58 @@
   <div nz-col nzSpan="8">
     <button nz-button nzType="default" routerLink="/{{ target }}">
       <i class="anticon anticon-arrow-left"></i>
-      <span i18n>回列表</span>
+      <span i18n="@@txtBackToList">回列表</span>
     </button>
   </div>
   <div nz-col nzSpan="8">
     <h2 class="txt-page-title" [ngSwitch]="isCreateMode">
-      <span i18n *ngSwitchCase="true">新增學歷</span>
-      <span i18n *ngSwitchCase="false">修改學歷</span>
+      <span *ngSwitchCase="true" i18n="@@txtAddEducation">新增學歷</span>
+      <span *ngSwitchCase="false" i18n="@@txtUpdateEducation">修改學歷</span>
     </h2>
   </div>
 </div>
   
 <form [formGroup]="form" (ngSubmit)="submit()">
   <nz-form-item>
-    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="level" nzRequired i18n>學歷</nz-form-label>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="level" nzRequired i18n="@@txtEducation">學歷</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
-      <input nz-input id="level" formControlName="level" [(ngModel)]="education.level" placeholder="請輸入學歷" i18n-placeholder>
-      <nz-form-explain *ngIf="form.get('level').dirty && form.get('level').errors" i18n>請輸入學歷</nz-form-explain>
+      <input nz-input id="level" formControlName="level" [(ngModel)]="education.level" placeholder="請輸入學歷" i18n-placeholder="@@txtPlaceholderEducation">
+      <nz-form-explain *ngIf="form.get('level').dirty && form.get('level').errors" i18n="@@txtPlaceholderEducation">請輸入學歷</nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="school" nzRequired i18n>學校</nz-form-label>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="school" nzRequired i18n="@@txtSchool">學校</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
-      <input nz-input id="school" formControlName="school" [(ngModel)]="education.school" placeholder="請輸入學校" i18n-placeholder>
-      <nz-form-explain *ngIf="form.get('school').dirty && form.get('school').errors" i18n>請輸入學校</nz-form-explain>
+      <input nz-input id="school" formControlName="school" [(ngModel)]="education.school" placeholder="請輸入學校" i18n-placeholder="@@txtPlaceholderSchool">
+      <nz-form-explain *ngIf="form.get('school').dirty && form.get('school').errors" i18n="@@txtPlaceholderSchool">請輸入學校</nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="department" nzRequired i18n>科系</nz-form-label>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="department" nzRequired i18n="@@txtDepartment">科系</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
-      <input nz-input id="department" formControlName="department" [(ngModel)]="education.department" placeholder="請輸入科系" i18n-placeholder>
-      <nz-form-explain *ngIf="form.get('department').dirty && form.get('department').errors" i18n>請輸入科系</nz-form-explain>
+      <input nz-input id="department" formControlName="department" [(ngModel)]="education.department" placeholder="請輸入科系" i18n-placeholder="@@txtPlaceholderDepartment">
+      <nz-form-explain *ngIf="form.get('department').dirty && form.get('department').errors" i18n="@@txtPlaceholderDepartment">請輸入科系</nz-form-explain>
     </nz-form-control>
   </nz-form-item>
   
   <nz-form-item>
-    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="major" nzRequired i18n>主修</nz-form-label>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="major" nzRequired i18n="@@txtMajor">主修</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
-      <input nz-input id="major" formControlName="major" [(ngModel)]="education.major" placeholder="請輸入主修" i18n-placeholder>
-      <nz-form-explain *ngIf="form.get('major').dirty && form.get('major').errors" i18n>請輸入主修</nz-form-explain>
+      <input nz-input id="major" formControlName="major" [(ngModel)]="education.major" placeholder="請輸入主修" i18n-placeholder="@@txtPlaceholderMajor">
+      <nz-form-explain *ngIf="form.get('major').dirty && form.get('major').errors" i18n="@@txtPlaceholderMajor">請輸入主修</nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="start" i18n>始業</nz-form-label>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="start" nzRequired i18n="@@txtStart">始業</nz-form-label>
     <nz-form-control [nzSm]="4" [nzXs]="24">
       <nz-month-picker id="start" formControlName="start" [(ngModel)]="education.start"></nz-month-picker>
-      <nz-form-explain *ngIf="form.get('start').dirty && form.get('start').errors" i18n>請輸入始業</nz-form-explain>
+      <nz-form-explain *ngIf="form.get('start').dirty && form.get('start').errors" i18n="@@txtPlaceholderStart">請輸入始業</nz-form-explain>
     </nz-form-control>
 
-    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="end" i18n>畢業</nz-form-label>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="end" i18n="@@txtEnd">畢業</nz-form-label>
     <nz-form-control [nzSm]="4" [nzXs]="24">
       <nz-month-picker id="end" formControlName="end" [(ngModel)]="education.end"></nz-month-picker>
     </nz-form-control>
@@ -63,7 +63,7 @@
     <nz-form-control [nzSm]="{ span: 20, offset: 4 }" [nzXs]="{ span: 24, offset: 0 }">
       <button nz-button nzType="primary">
         <i class="anticon anticon-save"></i>
-        <span i18n>儲存</span>
+        <span i18n="@@txtSave">儲存</span>
       </button>
     </nz-form-control>
   </nz-form-item>

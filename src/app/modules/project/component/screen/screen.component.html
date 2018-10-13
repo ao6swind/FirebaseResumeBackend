@@ -1,6 +1,6 @@
 <button nz-button nzType="dashed" (click)="addColumn()" type="button">
   <i class="anticon anticon-plus"></i>
-  <span i18n>增加</span>
+  <span i18n="@@txtAdd">增加</span>
 </button>
 <div [formGroup]="form">
   <nz-tabset [nzTabPosition]="'left'" formArrayName="screens">
@@ -8,37 +8,37 @@
       <div [formGroupName]="i">
         <ng-template #pnlTabTitle>
           <div>
-            <span i18n>畫面</span>
+            <span i18n="@@txtScreen">畫面</span>
             <span>{{ (i + 1) }}</span>
             <i class="anticon anticon-close" 
               nz-popconfirm 
               nzTitle="您確定要刪除這筆資料嗎？" 
-              i18n-nzTitle
+              i18n-nzTitle="@@txtDeleteScreenConfirm"
               [nzCondition]="(screens[i].url == '') ? true : false" 
               (nzOnConfirm)="removeColumn(i)"></i>
           </div>
         </ng-template>
       
         <nz-form-item>
-          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="screen.title#{{i}}" nzRequired i18n>標題</nz-form-label>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="screen.title#{{i}}" nzRequired i18n="@@txtTitle">標題</nz-form-label>
           <nz-form-control [nzSm]="16" [nzXs]="24">
-            <input nz-input id="screen.title#{{i}}" formControlName="title" [(ngModel)]="screens[i].title" placeholder="請輸入標題" i18n-placeholder>
-            <nz-form-explain *ngIf="row.get('title').dirty && row.get('title').errors" i18n>請輸入標題</nz-form-explain>
+            <input nz-input id="screen.title#{{i}}" formControlName="title" [(ngModel)]="screens[i].title" placeholder="請輸入標題" i18n-placeholder="@@txtPlaceholderTitle">
+            <nz-form-explain *ngIf="row.get('title').dirty && row.get('title').errors" i18n="@@txtPlaceholderTitle">請輸入標題</nz-form-explain>
           </nz-form-control>
         </nz-form-item>
        
         <nz-form-item>
-          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="screen.url#{{i}}" nzRequired i18n>檔案</nz-form-label>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="screen.url#{{i}}" nzRequired i18n="@@txtFile">檔案</nz-form-label>
           <nz-form-control [nzSm]="16" [nzXs]="24">
             <input nz-input id="screen.url#{{i}}" formControlName="url" type="file" accept="image/*" (change)="readURL($event, i)">
-            <nz-form-explain *ngIf="row.get('url').dirty && row.get('url').errors" i18n>請選擇檔案</nz-form-explain>
+            <nz-form-explain *ngIf="row.get('url').dirty && row.get('url').errors" i18n="@@txtPleaseChooseFile">請選擇檔案</nz-form-explain>
           </nz-form-control>
         </nz-form-item>
 
         <nz-form-item>
-          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="screen.description#{{i}}" i18n>敘述</nz-form-label>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="screen.description#{{i}}" i18n="@@txtDescription">敘述</nz-form-label>
           <nz-form-control [nzSm]="16" [nzXs]="24">
-            <textarea nz-input id="screen.description#{{i}}" formControlName="description" [(ngModel)]="screens[i].description" rows="10" placeholder="請輸入敘述" i18n-placeholder></textarea>
+            <textarea nz-input id="screen.description#{{i}}" formControlName="description" [(ngModel)]="screens[i].description" rows="10" placeholder="請輸入敘述" i18n-placeholder="@@txtPlaceholderDescription"></textarea>
           </nz-form-control>
         </nz-form-item>
       </div>

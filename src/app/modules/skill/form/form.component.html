@@ -2,39 +2,39 @@
   <div nz-col nzSpan="8">
     <button nz-button nzType="default" routerLink="/{{ target }}">
       <i class="anticon anticon-arrow-left"></i>
-      <span i18n>回列表</span>
+      <span i18n="@@txtBackToList">回列表</span>
     </button>
   </div>
   <div nz-col nzSpan="8">
     <h2 class="txt-page-title" [ngSwitch]="isCreateMode">
-      <span i18n *ngSwitchCase="true">新增技能</span>
-      <span i18n *ngSwitchCase="false">修改技能</span>
+      <span *ngSwitchCase="true" i18n="@@txtAddSkill">新增技能</span>
+      <span *ngSwitchCase="false" i18n="@@txtUpdateSkill">修改技能</span>
     </h2>
   </div>
 </div>
   
 <form [formGroup]="form" (ngSubmit)="submit()">
   <nz-form-item>
-    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="catelog>" nzRequired i18n>類別</nz-form-label>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="catelog>" nzRequired i18n="@@txtCatelog">類別</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
-      <input nz-input id="catelog" formControlName="catelog" [(ngModel)]="skill.catelog" placeholder="請輸入類別" i18n-placeholder>
-      <nz-form-explain *ngIf="form.get('catelog').dirty && form.get('catelog').errors" i18n>請輸入類別</nz-form-explain>
+      <input nz-input id="catelog" formControlName="catelog" [(ngModel)]="skill.catelog" placeholder="請輸入類別" i18n-placeholder="@@txtPlaceholderCatelog">
+      <nz-form-explain *ngIf="form.get('catelog').dirty && form.get('catelog').errors" i18n="@@txtPlaceholderCatelog">請輸入類別</nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="name" nzRequired i18n>名稱</nz-form-label>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="name" nzRequired i18n="@@txtTitle">名稱</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
-      <input nz-input id="name" formControlName="name" [(ngModel)]="skill.name" placeholder="請輸入名稱" i18n-placeholder>
-      <nz-form-explain *ngIf="form.get('name').dirty && form.get('name').errors" i18n>請輸入名稱</nz-form-explain>
+      <input nz-input id="name" formControlName="name" [(ngModel)]="skill.name" placeholder="請輸入名稱" i18n-placeholder="@@txtPlaceholderTitle">
+      <nz-form-explain *ngIf="form.get('name').dirty && form.get('name').errors" i18n="@@txtPlaceholderTitle">請輸入名稱</nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="percentage" nzRequired i18n>程度</nz-form-label>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="percentage" nzRequired i18n="@@txtLevel">程度</nz-form-label>
     <nz-form-control [nzSm]="16" [nzXs]="24">
       <nz-slider [nzMarks]="marks" [nzStep]="5" [nzDefaultValue]="0" id="percentage" formControlName="percentage" [(ngModel)]="skill.percentage"></nz-slider>
-      <nz-form-explain *ngIf="form.get('percentage').dirty && form.get('percentage').errors" i18n>請輸入程度</nz-form-explain>
+      <nz-form-explain *ngIf="form.get('percentage').dirty && form.get('percentage').errors" i18n="@@txtPlaceholderLevel">請輸入程度</nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
@@ -42,7 +42,7 @@
     <nz-form-control [nzSm]="{ span: 20, offset: 4 }" [nzXs]="{ span: 24, offset: 0 }">
       <button nz-button nzType="primary">
         <i class="anticon anticon-save"></i>
-        <span i18n>儲存</span>
+        <span i18n="@@txtSave">儲存</span>
       </button>
     </nz-form-control>
   </nz-form-item>

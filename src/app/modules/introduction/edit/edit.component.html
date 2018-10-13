@@ -1,9 +1,9 @@
 <app-loading *ngIf="isLoading"></app-loading>
 <div *ngIf="!isLoading">
-  <h2 class="txt-page-title" i18n>個人資料</h2>
+  <h2 class="txt-page-title" i18n="@@txtIntroducation">個人資料</h2>
   <form (ngSubmit)="submit()">
     <nz-tabset [nzTabBarExtraContent]="extraTemplate">
-      <nz-tab nzTitle="基本資料" i18n-nzTitle>
+      <nz-tab nzTitle="基本資料" i18n-nzTitle="@@txtInformation">
         <nz-form-item>
           <nz-form-control [nzSm]="6" [nzXs]="24">
             <img src="{{ (uploaded.photo.content != null) ? uploaded.photo.content : 'assets/img/user.png' }}">
@@ -15,14 +15,14 @@
           </nz-form-control>
           <nz-form-control [nzSm]="18" [nzXs]="24">
             <nz-form-item>
-              <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="photo" i18n>大頭照</nz-form-label>
+              <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="photo" i18n="@@txtPhoto">大頭照</nz-form-label>
               <nz-form-control [nzSm]="20" [nzXs]="24">
                 <input nz-input id="photo" type="file" accept="image/*" (change)="readFile($event, 'photo')">
               </nz-form-control>
             </nz-form-item>
   
             <nz-form-item>
-              <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="resume" i18n>履歷</nz-form-label>
+              <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="resume" i18n="@@txtResume">履歷</nz-form-label>
               <nz-form-control [nzSm]="20" [nzXs]="24">
                 <nz-input-group [nzAddOnAfter]="addOnAfterTemplate">
                   <input nz-input id="resume" type="file" accept=".pdf" (change)="readFile($event, 'resume')">
@@ -31,12 +31,12 @@
                   <span [ngSwitch]="introduction.resume == null">
                     <span *ngSwitchCase="true">
                       <font color="red">
-                        <span i18n>未上傳</span>
+                        <span i18n="@@txtUploadedNotYet">未上傳</span>
                       </font>
                     </span>
                     <span *ngSwitchCase="false">
                       <a href="{{ introduction.resume }}" target="_blank">
-                        <span i18n>預覽</span>
+                        <span i18n="@@txtPreview">預覽</span>
                       </a>
                     </span>
                   </span>
@@ -47,18 +47,18 @@
         </nz-form-item>
       </nz-tab>
   
-      <nz-tab nzTitle="連結" i18n-nzTitle>
+      <nz-tab nzTitle="連結" i18n-nzTitle="@@txtLink">
         <button nz-button nzType="dashed" (click)="addColumn()" type="button">
           <i class="anticon anticon-plus"></i>
-          <span i18n>增加</span>
+          <span i18n="@@txtAdd">增加</span>
         </button>
   
         <nz-form-item *ngFor="let link of introduction.links; let i = index;">
           <nz-form-control [nzXs]="24" [nzSm]="24">
             <nz-input-group nzCompact>
-              <input nz-input style="width:30%;" name="link[{{i}}].name" [(ngModel)]="link.name"  placeholder="請輸入名稱" i18n-placeholder>
-              <input nz-input style="width:30%;" name="link[{{i}}].url"  [(ngModel)]="link.url"   placeholder="請輸入網址" i18n-placeholder>
-              <input nz-input style="width:30%;" name="link[{{i}}].icon" [(ngModel)]="link.icon"  placeholder="請輸入圖示" i18n-placeholder>
+              <input nz-input style="width:30%;" name="link[{{i}}].name" [(ngModel)]="link.name"  placeholder="請輸入名稱" i18n-placeholder="@@txtPlaceholderTitle">
+              <input nz-input style="width:30%;" name="link[{{i}}].url"  [(ngModel)]="link.url"   placeholder="請輸入網址" i18n-placeholder="@@txtPlaceholderUrl">
+              <input nz-input style="width:30%;" name="link[{{i}}].icon" [(ngModel)]="link.icon"  placeholder="請輸入圖示" i18n-placeholder="@@txtPlaceholderIcon">
               <button nz-button style="width:10%;" nzType="danger" (click)="removeColumn(i)">
                 <i class="anticon anticon-delete"></i>
               </button>
@@ -67,7 +67,7 @@
         </nz-form-item>   
       </nz-tab>
   
-      <nz-tab nzTitle="自傳" i18n-nzTitle>
+      <nz-tab nzTitle="自傳" i18n-nzTitle="@@txtProfile">
         <ck-editor 
           [(ngModel)]="introduction.profile" 
           [fullPage]="true"
@@ -81,7 +81,7 @@
     <ng-template #extraTemplate>
       <button nz-button nzType="primary">
         <i class="anticon anticon-save"></i>
-        <span i18n>儲存</span>
+        <span i18n="@@txtSave">儲存</span>
       </button>
     </ng-template>
   </form>

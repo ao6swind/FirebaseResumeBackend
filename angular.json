@@ -50,7 +50,26 @@
               "vendorChunk": false,
               "buildOptimizer": true
             },
-            "en": {
+            "zh-TW": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "baseHref": "/zh-TW/",
+              "outputPath": "dist/zh-TW/"
+            },
+            "en-US": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -83,8 +102,11 @@
             "production": {
               "browserTarget": "ResumeBackend:build:production"
             },
-            "en":{
-              "browserTarget": "ResumeBackend:build:en"
+            "zh-TW":{
+              "browserTarget": "ResumeBackend:build:zh-TW"
+            },
+            "en-US":{
+              "browserTarget": "ResumeBackend:build:en-US"
             }
           }
         },

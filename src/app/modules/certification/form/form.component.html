@@ -5,13 +5,13 @@
     <div nz-col nzSpan="8">
       <button nz-button nzType="default" routerLink="/{{ target }}">
         <i class="anticon anticon-arrow-left"></i>
-        <span i18n>回列表</span>
+        <span i18n="@@txtBackToList">回列表</span>
       </button>
     </div>
     <div nz-col nzSpan="8">
       <h2 class="txt-page-title" [ngSwitch]="isCreateMode">
-        <span i18n *ngSwitchCase="true">新增證照</span>
-        <span i18n *ngSwitchCase="false">修改證照</span>
+        <span *ngSwitchCase="true" i18n="@@txtAddCertification">新增證照</span>
+        <span *ngSwitchCase="false" i18n="@@txtUpdateCertification">修改證照</span>
       </h2>
     </div>
   </div>
@@ -23,31 +23,31 @@
       </nz-form-control>
       <nz-form-control [nzSm]="18" [nzXs]="24">
         <nz-form-item>
-          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="name" nzRequired i18n>名稱</nz-form-label>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="name" nzRequired i18n="@@txtTitle">名稱</nz-form-label>
           <nz-form-control [nzSm]="18" [nzXs]="24">
-            <input nz-input id="name" formControlName="name" [(ngModel)]="certification.name" placeholder="請輸入名稱" i18n-placeholder>
-            <nz-form-explain *ngIf="form.get('name').dirty && form.get('name').errors" i18n>請輸入名稱</nz-form-explain>
+            <input nz-input id="name" formControlName="name" [(ngModel)]="certification.name" placeholder="請輸入名稱" i18n-placeholder="@@txtPlaceholderTitle">
+            <nz-form-explain *ngIf="form.get('name').dirty && form.get('name').errors" i18n="@@txtPlaceholderTitle">請輸入名稱</nz-form-explain>
           </nz-form-control>
         </nz-form-item>
       
         <nz-form-item>
-          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="from" nzRequired i18n>發證單位</nz-form-label>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="from" nzRequired i18n="@@txtFrom">發證單位</nz-form-label>
           <nz-form-control [nzSm]="18" [nzXs]="24">
-            <input nz-input id="from" formControlName="from" [(ngModel)]="certification.from" placeholder="請輸入發證單位" i18n-placeholder>
-            <nz-form-explain *ngIf="form.get('from').dirty && form.get('from').errors" i18n>請輸入發證單位</nz-form-explain>
+            <input nz-input id="from" formControlName="from" [(ngModel)]="certification.from" placeholder="請輸入發證單位" i18n-placeholder="@@txtPlaceholderFrom">
+            <nz-form-explain *ngIf="form.get('from').dirty && form.get('from').errors" i18n="@@txtPlaceholderFrom">請輸入發證單位</nz-form-explain>
           </nz-form-control>
         </nz-form-item>
       
         <nz-form-item>
-          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="url" nzRequired i18n>證照圖檔</nz-form-label>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="url" nzRequired i18n="@@txtImage">證照圖檔</nz-form-label>
           <nz-form-control [nzSm]="18" [nzXs]="24">
             <input nz-input id="url" formControlName="url" type="file" accept="image/*" (change)="readURL($event)">
-            <nz-form-explain *ngIf="form.get('url').dirty && form.get('url').errors" i18n>請選擇檔案</nz-form-explain>
+            <nz-form-explain *ngIf="form.get('url').dirty && form.get('url').errors" i18n="@@txtPlaceholderImage">請選擇證照圖檔</nz-form-explain>
           </nz-form-control>
         </nz-form-item>
         
         <nz-form-item>
-          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="expired" i18n>有效期限</nz-form-label>
+          <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="expired" i18n="@@txtExpired">有效期限</nz-form-label>
           <nz-form-control [nzSm]="18" [nzXs]="24">
             <nz-month-picker id="expired" formControlName="expired" [(ngModel)]="certification.expired"></nz-month-picker>
           </nz-form-control>
@@ -57,7 +57,7 @@
           <nz-form-control [nzSm]="{ span: 20, offset: 4 }" [nzXs]="{ span: 24, offset: 0 }">
             <button nz-button nzType="primary">
               <i class="anticon anticon-save"></i>
-              <span i18n>儲存</span>
+              <span i18n="@@txtSave">儲存</span>
             </button>
           </nz-form-control>
         </nz-form-item>
