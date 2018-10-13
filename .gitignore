@@ -39,5 +39,6 @@ testem.log
 Thumbs.db
 
 # 較為隱密的檔案
+/src/environments/environment.prod.ts
 /src/environments/environment.ts
 /deploy
