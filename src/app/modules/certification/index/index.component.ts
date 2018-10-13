@@ -19,6 +19,7 @@ import { Certification } from './../../../models/certification.model';
 
 export class IndexComponent implements OnInit 
 {
+  public isLoading: boolean = false;
   public certifications: AngularFireList<Certification>;
   public dataSet = [];
 
@@ -37,6 +38,7 @@ export class IndexComponent implements OnInit
 
   ngOnInit() 
   {
+    this.isLoading = true;
     this.certifications = this.firebase.list(`${this.language}/${this.target}`);
     this.certifications.snapshotChanges().subscribe(list => {
       this.dataSet = list.map(item => {
@@ -45,6 +47,7 @@ export class IndexComponent implements OnInit
           certification: item.payload.val()
         }
       });
+      this.isLoading = false;
     });
   }
 

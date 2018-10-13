@@ -32,7 +32,7 @@ export class IndexComponent implements OnInit
   
   ngOnInit() 
   {
-    this.isLoading =  true;
+    this.isLoading = true;
     this.educations = this.fb.list(`${this.language}/${this.target}`);
     this.educations.snapshotChanges().subscribe(list => {
       this.dataSet = list.map(item => {

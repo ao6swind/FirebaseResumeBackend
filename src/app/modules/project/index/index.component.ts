@@ -14,6 +14,7 @@ import { Project } from './../../../models/project.model';
 
 export class IndexComponent implements OnInit 
 {
+  public isLoading: boolean = false;
   public projects: AngularFireList<Project>;
   public dataSet = [];
 
@@ -32,6 +33,7 @@ export class IndexComponent implements OnInit
 
   ngOnInit() 
   {
+    this.isLoading = true;
     this.projects = this.firebase.list(`${this.language}/${this.target}`);
     this.projects.snapshotChanges().subscribe(list => {
       this.dataSet = list.map(item => {
@@ -40,6 +42,7 @@ export class IndexComponent implements OnInit
           project: item.payload.val()
         }
       });
+      this.isLoading = false;
     });
   }
 

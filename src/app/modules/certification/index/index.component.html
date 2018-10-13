@@ -12,7 +12,8 @@
 
 <nz-table 
   #pnlTable
-  [nzData]="dataSet" 
+  [nzData]="dataSet"
+  [nzLoading]="isLoading"
   [nzShowSizeChanger]="true"
   [nzPageSizeOptions]="[ 5, 10, 15 ]">
   <thead>
