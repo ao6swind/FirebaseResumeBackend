@@ -58,6 +58,6 @@ export class AppComponent
 
   redirect(): void 
   {
-    window.location.href = `/${this.language}${this.router.url}`;
+    window.location.href = `/${this.language}/#/${this.router.url}`;
   }
 }
