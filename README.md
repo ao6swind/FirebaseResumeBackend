@@ -1,3 +1,6 @@
+# 佈署至 Firebase Host
+編譯前請先建立deploy資料夾，然後cd至該資料夾後參考Firebase host deploy文件進行佈署  
+
 # 執行
 + ng serve -c="zh-TW" -o
 + ng serve -c="en-US" -o
