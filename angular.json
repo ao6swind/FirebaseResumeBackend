@@ -67,7 +67,7 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "baseHref": "/zh-TW/",
-              "outputPath": "dist/zh-TW/"
+              "outputPath": "deploy/public/zh-TW/"
             },
             "en-US": {
               "fileReplacements": [
@@ -86,7 +86,7 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "baseHref": "/en-US/",
-              "outputPath": "dist/en-US/",
+              "outputPath": "deploy/public/en-US/",
               "i18nFile": "src/locale/en-US/source.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "en-US"

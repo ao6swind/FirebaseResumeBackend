@@ -946,6 +946,14 @@
           <context context-type="linenumber">91</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="txtProjectType" datatype="html">
+        <source>專案類型</source>
+        <target>Project Type</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="txtKeyword" datatype="html">
         <source>關鍵字</source>
         <target>Keyword</target>
