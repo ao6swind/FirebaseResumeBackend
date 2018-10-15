@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { ScreenImage } from '../../../../models/screen.model';
 import { Uploaded } from '../../../../models/uploaded.model';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-screen',
@@ -14,7 +15,8 @@ export class ScreenComponent implements OnInit {
   @Input() builder: FormBuilder;
   @Input() uploaded_list: Array<Uploaded>;
   @Input() screens: Array<ScreenImage>;
-
+  @Output() removeScreen = new EventEmitter();
+  
   constructor() 
   { 
     
@@ -39,9 +41,15 @@ export class ScreenComponent implements OnInit {
 
   removeColumn(index: number): void
   {
+    const target = this.screens[index];
     this.screens.splice(index, 1);
     this.uploaded_list.splice(index, 1);
     (this.form.get('screens') as FormArray).removeAt(index);
+    if(target.url != null)
+    {
+      firebase.storage().refFromURL(target.url).delete();
+      this.removeScreen.emit(index);
+    }
   }
 
   readURL(event: any, i:number): void 

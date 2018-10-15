@@ -16,7 +16,7 @@
     </div>
   </div>
     
-  <form [formGroup]="form" (ngSubmit)="submit()">
+  <form [formGroup]="form">
     <nz-tabset [nzTabBarExtraContent]="extraTemplate">
       <nz-tab nzTitle="基本資訊" i18n-nzTitle="@@txtInformation">
         <nz-form-item>
@@ -41,21 +41,19 @@
             </nz-form-item>
 
             <nz-form-item>
-              <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="url" nzRequired i18n="@@txtUrl">網址</nz-form-label>
+              <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="url" i18n="@@txtUrl">網址</nz-form-label>
               <nz-form-control [nzSm]="16" [nzXs]="24">
                 <input nz-input id="url" formControlName="url" [(ngModel)]="project.url" placeholder="請輸入網址" i18n-placeholder="@@txtUrl">
-                <nz-form-explain *ngIf="form.get('url').dirty && form.get('url').errors" i18n="@@txtPlaceholderUrl">請輸入網址</nz-form-explain>
               </nz-form-control>
             </nz-form-item>
 
             <nz-form-item>
-              <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="is_public" nzRequired i18n="@@txtIsPublic">公開網址</nz-form-label>
+              <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="is_public" i18n="@@txtIsPublic">公開網址</nz-form-label>
               <nz-form-control [nzSm]="16" [nzXs]="24">
                 <nz-radio-group id="is_public" formControlName="is_public" [(ngModel)]="project.is_public">
                   <label nz-radio nzValue="是" i18n-nzValue="@@txtYes" i18n="@@txtYes">是</label>
                   <label nz-radio nzValue="否" i18n-nzValue="@@txtNo" i18n="@@txtNo">否</label>
                 </nz-radio-group>
-                <nz-form-explain *ngIf="form.get('is_public').dirty && form.get('is_public').errors" i18n="@@txtPlaceholderIsPublic">請選擇是否公開專案網址</nz-form-explain>
               </nz-form-control>
             </nz-form-item>
 
@@ -135,20 +133,16 @@
       <nz-tab nzTitle="畫面截圖" i18n-nzTitle="@@txtScreen">
         <nz-form-item>
           <nz-form-control [nzSm]="12" [nzXs]="24">
-            <app-screen [screens]="project.screens" [uploaded_list]="uploaded_list" [form]="form" [builder]="builder"></app-screen>
+            <app-screen [screens]="project.screens" [uploaded_list]="uploaded_list" [form]="form" [builder]="builder" (removeScreen)="removeScreen($event)"></app-screen>
           </nz-form-control>
           <nz-form-control [nzSm]="12" [nzXs]="24">
-            <nz-carousel nzAutoPlay>
+            <nz-carousel nzAutoPlay [nzEffect]="'scrollx'">
               <div nz-carousel-content *ngFor="let screen of project.screens; let i = index">
                 <img src="{{ (uploaded_list[i].content != null) ? uploaded_list[i].content : 'assets/img/card.png' }}">
                 <h3>
                   <span *ngIf="screen.title == null">[<span i18n="@@txtTitle">標題</span>]</span>
                   <span *ngIf="screen.title != null">{{ screen.title }}</span>
                 </h3>
-                <p>
-                  <span *ngIf="screen.description == null">[<span i18n="@@txtDescription">敘述</span>]</span>
-                  <span *ngIf="screen.description != null">{{ screen.description }}</span>
-                </p>
               </div>
             </nz-carousel>
           </nz-form-control>
@@ -157,7 +151,7 @@
     </nz-tabset>
 
     <ng-template #extraTemplate>
-      <button nz-button nzType="primary">
+      <button nz-button nzType="primary" type="button" (click)="submit()">
         <i class="anticon anticon-save"></i>
         <span i18n="@@txtSave">儲存</span>
       </button>

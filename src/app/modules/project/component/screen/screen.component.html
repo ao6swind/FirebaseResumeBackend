@@ -14,7 +14,7 @@
               nz-popconfirm 
               nzTitle="您確定要刪除這筆資料嗎？" 
               i18n-nzTitle="@@txtDeleteScreenConfirm"
-              [nzCondition]="(screens[i].url == '') ? true : false" 
+              [nzCondition]="(screens[i].url == null) ? true : false" 
               (nzOnConfirm)="removeColumn(i)"></i>
           </div>
         </ng-template>
@@ -42,7 +42,6 @@
           </nz-form-control>
         </nz-form-item>
       </div>
-      
     </nz-tab>
   </nz-tabset>
 </div>

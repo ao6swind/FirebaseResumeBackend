@@ -657,10 +657,6 @@
           <context context-type="sourcefile">app/modules/introduction/edit/edit.component.html</context>
           <context context-type="linenumber">60</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">47</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="txtDescription" datatype="html">
         <source>簡介</source>
@@ -676,10 +672,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
           <context context-type="linenumber">124</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">147</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/component/screen/screen.component.html</context>
@@ -904,14 +896,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
           <context context-type="linenumber">56</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="txtPlaceholderIsPublic" datatype="html">
-        <source>請選擇是否公開專案網址</source>
-        <target>Please choose is public</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="txtAddKeywordAtLeast" datatype="html">

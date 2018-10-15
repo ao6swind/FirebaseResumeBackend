@@ -9,6 +9,7 @@ import { LanguageService } from './../../../services/language.service';
 import { message } from './../../../variables/message';
 import { Project } from '../../../models/project.model';
 import { Uploaded } from '../../../models/uploaded.model';
+import { ScreenImage } from './../../../models/screen.model';
 
 @Component({
   selector: 'app-form',
@@ -48,8 +49,8 @@ export class FormComponent implements OnInit
     this.form = this.builder.group({
       title:        [ null, [ Validators.required ] ],
       type:         [ null, [ Validators.required ] ],
-      is_public:    [ null, [ Validators.required ] ],
-      url:          [ null, [ Validators.required ] ],
+      is_public:    [ null ],
+      url:          [ null ],
       description:  [ null ],
       keywords:     this.builder.array([], [ Validators.required ]),
       milestones:   this.builder.array([], [ Validators.required ]),
@@ -172,7 +173,7 @@ export class FormComponent implements OnInit
           if(this.uploaded_list[index].file != null)
           {
             // 如果之前有檔案，就先刪掉
-            if(this.project.screens[index].url != '')
+            if(this.project.screens[index].url != null)
             {
               firebase.storage().refFromURL(this.project.screens[index].url).delete();
             }
@@ -191,11 +192,16 @@ export class FormComponent implements OnInit
               });
           }
         }
-        this.fb.object<Project>(`${this.language}/${this.target}/${this.$key}}`).update(this.project);
+        this.fb.object<Project>(`${this.language}/${this.target}/${this.$key}`).update(this.project);
         this.message.success(message[this.language].success.update);
       }
       
       this.router.navigate([`/${this.target}`]);
     }
+  }
+
+  removeScreen(index: number)
+  {
+    this.fb.object<Project>(`${this.language}/${this.target}/${this.$key}`).update(this.project);
   }
 }
