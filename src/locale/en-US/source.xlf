@@ -881,18 +881,10 @@
           <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
           <context context-type="linenumber">55</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">55</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="txtNo" datatype="html">
         <source>否</source>
         <target>No</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/project/form/form.component.html</context>
           <context context-type="linenumber">56</context>
