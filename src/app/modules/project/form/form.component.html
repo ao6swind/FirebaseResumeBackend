@@ -51,8 +51,8 @@
               <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="is_public" i18n="@@txtIsPublic">公開網址</nz-form-label>
               <nz-form-control [nzSm]="16" [nzXs]="24">
                 <nz-radio-group id="is_public" formControlName="is_public" [(ngModel)]="project.is_public">
-                  <label nz-radio nzValue="是" i18n-nzValue="@@txtYes" i18n="@@txtYes">是</label>
-                  <label nz-radio nzValue="否" i18n-nzValue="@@txtNo" i18n="@@txtNo">否</label>
+                  <label nz-radio nzValue="true" i18n="@@txtYes">是</label>
+                  <label nz-radio nzValue="false" i18n="@@txtNo">否</label>
                 </nz-radio-group>
               </nz-form-control>
             </nz-form-item>
