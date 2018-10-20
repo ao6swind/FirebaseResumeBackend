@@ -28,7 +28,10 @@
     <tr *ngFor="let data of pnlTable.data">
       <td>{{ data.project.title }}</td>
       <td>{{ data.project.type }}</td>
-      <td>{{ data.project.is_public }}</td>
+      <td>
+        <span *ngIf="data.project.is_public == 'true'" i18n="@@txtYes">是</span>
+        <span *ngIf="data.project.is_public == 'false'" i18n="@@txtNo">否</span>
+      </td>
       <td>
         <button nz-button nzType="default" nzSize="small" routerLink="/{{ target }}/edit/{{ data.$key }}">
           <i class="anticon anticon-edit"></i>

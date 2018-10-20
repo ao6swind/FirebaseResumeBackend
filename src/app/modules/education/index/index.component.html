@@ -20,6 +20,7 @@
     <tr>
       <th i18n="@@txtEducation">學歷</th>
       <th i18n="@@txtSchool">學校</th>
+      <th i18n="@@txtDepartment">科系</th>
       <th i18n="@@txtMajor">主修</th>
       <th i18n="@@txtStart">始業</th>
       <th i18n="@@txtEnd">畢業</th>
@@ -30,6 +31,7 @@
     <tr *ngFor="let data of pnlTable.data">
       <td>{{ data.education.level }}</td>
       <td>{{ data.education.school }}</td>
+      <td>{{ data.education.department }}</td>
       <td>{{ data.education.major }}</td>
       <td>{{ data.education.start }}</td>
       <td>{{ data.education.end }}</td>
